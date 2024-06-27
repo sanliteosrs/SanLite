@@ -1,23 +1,20 @@
 import java.io.File;
-import java.lang.management.GarbageCollectorMXBean;
-import java.lang.management.ManagementFactory;
 import java.util.Hashtable;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fw")
+@ObfuscatedName("ih")
 @Implements("FileSystem")
 public class FileSystem {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@Export("FileSystem_hasPermissions")
 	static boolean FileSystem_hasPermissions;
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@Export("FileSystem_cacheDir")
 	static File FileSystem_cacheDir;
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@Export("FileSystem_cacheFiles")
 	static Hashtable FileSystem_cacheFiles;
 
@@ -26,158 +23,70 @@ public class FileSystem {
 		FileSystem_cacheFiles = new Hashtable(16);
 	} // L: 9
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "([FIFB)F",
-		garbageValue = "-127"
+		descriptor = "(Lde;[BIIIIIIIIIB)V",
+		garbageValue = "14"
 	)
-	static float method3281(float[] var0, int var1, float var2) {
-		float var3 = var0[var1]; // L: 108
-
-		for (int var4 = var1 - 1; var4 >= 0; --var4) { // L: 109
-			var3 = var2 * var3 + var0[var4]; // L: 110
-		}
-
-		return var3; // L: 112
-	}
-
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(CLlb;I)C",
-		garbageValue = "2136665955"
-	)
-	@Export("standardizeChar")
-	static char standardizeChar(char var0, Language var1) {
-		if (var0 >= 192 && var0 <= 255) { // L: 69
-			if (var0 >= 192 && var0 <= 198) { // L: 70
-				return 'A';
-			}
-
-			if (var0 == 199) { // L: 71
-				return 'C';
-			}
-
-			if (var0 >= 200 && var0 <= 203) { // L: 72
-				return 'E';
-			}
-
-			if (var0 >= 204 && var0 <= 207) { // L: 73
-				return 'I';
-			}
-
-			if (var0 == 209 && var1 != Language.Language_ES) { // L: 74
-				return 'N';
-			}
-
-			if (var0 >= 210 && var0 <= 214) { // L: 75
-				return 'O';
-			}
-
-			if (var0 >= 217 && var0 <= 220) { // L: 76
-				return 'U';
-			}
-
-			if (var0 == 221) { // L: 77
-				return 'Y';
-			}
-
-			if (var0 == 223) { // L: 78
-				return 's';
-			}
-
-			if (var0 >= 224 && var0 <= 230) { // L: 79
-				return 'a';
-			}
-
-			if (var0 == 231) { // L: 80
-				return 'c';
-			}
-
-			if (var0 >= 232 && var0 <= 235) { // L: 81
-				return 'e';
-			}
-
-			if (var0 >= 236 && var0 <= 239) { // L: 82
-				return 'i';
-			}
-
-			if (var0 == 241 && var1 != Language.Language_ES) { // L: 83
-				return 'n';
-			}
-
-			if (var0 >= 242 && var0 <= 246) { // L: 84
-				return 'o';
-			}
-
-			if (var0 >= 249 && var0 <= 252) { // L: 85
-				return 'u';
-			}
-
-			if (var0 == 253 || var0 == 255) { // L: 86
-				return 'y';
-			}
-		}
-
-		if (var0 == 338) { // L: 88
-			return 'O';
-		} else if (var0 == 339) { // L: 89
-			return 'o';
-		} else if (var0 == 376) { // L: 90
-			return 'Y';
-		} else {
-			return var0; // L: 91
-		}
-	}
-
-	@ObfuscatedName("j")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1243687493"
-	)
-	public static void method3282() {
-		SpotAnimationDefinition.SpotAnimationDefinition_cached.clear(); // L: 117
-		SpotAnimationDefinition.SpotAnimationDefinition_cachedModels.clear(); // L: 118
-	} // L: 119
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "1055608683"
-	)
-	@Export("getGcDuration")
-	protected static int getGcDuration() {
-		int var0 = 0; // L: 572
-		if (class162.garbageCollector == null || !class162.garbageCollector.isValid()) { // L: 573
-			try {
-				Iterator var1 = ManagementFactory.getGarbageCollectorMXBeans().iterator(); // L: 575
-
-				while (var1.hasNext()) {
-					GarbageCollectorMXBean var2 = (GarbageCollectorMXBean)var1.next(); // L: 576
-					if (var2.isValid()) { // L: 578
-						class162.garbageCollector = var2; // L: 579
-						GameEngine.garbageCollectorLastCheckTimeMs = -1L; // L: 580
-						GameEngine.garbageCollectorLastCollectionTime = -1L; // L: 581
+	static final void method4224(class101 var0, byte[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10) {
+		CollisionMap[] var11 = var0.field1317; // L: 113
+		int var13;
+		if (var11 != null) { // L: 114
+			for (int var12 = 0; var12 < 8; ++var12) { // L: 115
+				for (var13 = 0; var13 < 8; ++var13) { // L: 116
+					if (var3 + var12 > 0 && var3 + var12 < var11[var2].flags.length && var13 + var4 > 0 && var13 + var4 < var11[var2].flags[var3 + var12].length) { // L: 117
+						int[] var10000 = var11[var2].flags[var3 + var12];
+						var10000[var4 + var13] &= -1073741825;
 					}
 				}
-			} catch (Throwable var11) { // L: 586
 			}
 		}
 
-		if (class162.garbageCollector != null) { // L: 588
-			long var9 = class115.method2692(); // L: 589
-			long var3 = class162.garbageCollector.getCollectionTime(); // L: 590
-			if (GameEngine.garbageCollectorLastCollectionTime != -1L) { // L: 591
-				long var5 = var3 - GameEngine.garbageCollectorLastCollectionTime; // L: 592
-				long var7 = var9 - GameEngine.garbageCollectorLastCheckTimeMs; // L: 593
-				if (0L != var7) { // L: 594
-					var0 = (int)(var5 * 100L / var7);
+		Buffer var25 = new Buffer(var1); // L: 121
+
+		for (var13 = 0; var13 < 4; ++var13) { // L: 122
+			for (int var14 = 0; var14 < 64; ++var14) { // L: 123
+				for (int var15 = 0; var15 < 64; ++var15) { // L: 124
+					if (var5 == var13 && var14 >= var6 && var14 < var6 + 8 && var15 >= var7 && var15 < var7 + 8) { // L: 125
+						int var16 = var3 + MusicPatchPcmStream.method6418(var14 & 7, var15 & 7, var8); // L: 126
+						int var19 = var14 & 7; // L: 129
+						int var20 = var15 & 7; // L: 130
+						int var21 = var8 & 3; // L: 133
+						int var18;
+						if (var21 == 0) { // L: 134
+							var18 = var20; // L: 135
+						} else if (var21 == 1) { // L: 138
+							var18 = 7 - var19; // L: 139
+						} else if (var21 == 2) { // L: 142
+							var18 = 7 - var20; // L: 143
+						} else {
+							var18 = var19; // L: 146
+						}
+
+						int var22 = var18 + var4; // L: 148
+						int var23 = var3 + (var14 & 7) + var9; // L: 149
+						int var24 = var10 + (var15 & 7) + var4; // L: 150
+						WorldMapSection1.method5043(var0, var25, var2, var16, var22, var23, var24, var8); // L: 151
+					} else {
+						WorldMapSection1.method5043(var0, var25, 0, -1, -1, 0, 0, 0); // L: 153
+					}
 				}
 			}
-
-			GameEngine.garbageCollectorLastCollectionTime = var3; // L: 596
-			GameEngine.garbageCollectorLastCheckTimeMs = var9; // L: 597
 		}
 
-		return var0; // L: 599
+	} // L: 157
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(IIIZIII)J",
+		garbageValue = "690823104"
+	)
+	public static long method4223(int var0, int var1, int var2, boolean var3, int var4, int var5) {
+		long var6 = (long)((var0 & 127) << 0 | (var1 & 127) << 7 | (var2 & 3) << 14) | ((long)var4 & 4294967295L) << 17 | ((long)var5 & 2047L) << 49; // L: 76
+		if (var3) { // L: 77
+			var6 |= 65536L;
+		}
+
+		return var6; // L: 78
 	}
 }

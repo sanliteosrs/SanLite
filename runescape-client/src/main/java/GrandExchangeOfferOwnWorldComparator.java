@@ -1,117 +1,121 @@
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Comparator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bq")
+@ObfuscatedName("cs")
 @Implements("GrandExchangeOfferOwnWorldComparator")
 public class GrandExchangeOfferOwnWorldComparator implements Comparator {
-	@ObfuscatedName("r")
+	@ObfuscatedName("ih")
 	@ObfuscatedSignature(
-		descriptor = "Lkb;"
+		descriptor = "Lqh;"
 	)
-	@Export("scriptActiveWidget")
-	static Widget scriptActiveWidget;
-	@ObfuscatedName("c")
+	static Font field468;
+	@ObfuscatedName("os")
+	@ObfuscatedSignature(
+		descriptor = "Lnx;"
+	)
+	static Widget field466;
+	@ObfuscatedName("aq")
 	@Export("filterWorlds")
 	boolean filterWorlds;
 
 	GrandExchangeOfferOwnWorldComparator() {
-	} // L: 12530
+	} // L: 13678
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Llj;Llj;B)I",
-		garbageValue = "-46"
+		descriptor = "(Lpm;Lpm;I)I",
+		garbageValue = "-1263083412"
 	)
 	@Export("compare_bridged")
 	int compare_bridged(GrandExchangeEvent var1, GrandExchangeEvent var2) {
-		if (var2.world == var1.world) { // L: 12533
+		if (var2.world == var1.world) { // L: 13681
 			return 0;
 		} else {
-			if (this.filterWorlds) { // L: 12534
-				if (Client.worldId == var1.world) { // L: 12535
+			if (this.filterWorlds) { // L: 13682
+				if (Client.worldId == var1.world) { // L: 13683
 					return -1;
 				}
 
-				if (var2.world == Client.worldId) { // L: 12536
+				if (var2.world == Client.worldId) { // L: 13684
 					return 1;
 				}
 			}
 
-			return var1.world < var2.world ? -1 : 1; // L: 12538
+			return var1.world < var2.world ? -1 : 1; // L: 13686
 		}
 	}
 
 	public boolean equals(Object var1) {
-		return super.equals(var1); // L: 12546
+		return super.equals(var1); // L: 13694
 	}
 
 	public int compare(Object var1, Object var2) {
-		return this.compare_bridged((GrandExchangeEvent)var1, (GrandExchangeEvent)var2); // L: 12542
+		return this.compare_bridged((GrandExchangeEvent)var1, (GrandExchangeEvent)var2); // L: 13690
 	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/CharSequence;I)Ljava/lang/String;",
-		garbageValue = "-1404651697"
+		descriptor = "(I)J",
+		garbageValue = "-2098483687"
 	)
-	public static String method1097(CharSequence var0) {
-		int var1 = var0.length(); // L: 11
-		StringBuilder var2 = new StringBuilder(var1); // L: 12
+	static long method1234() {
+		try {
+			URL var0 = new URL(class68.method1248("services", false) + "m=accountappeal/login.ws"); // L: 36
+			URLConnection var1 = var0.openConnection(); // L: 37
+			var1.setRequestProperty("connection", "close"); // L: 38
+			var1.setDoInput(true); // L: 39
+			var1.setDoOutput(true); // L: 40
+			var1.setConnectTimeout(5000); // L: 41
+			OutputStreamWriter var2 = new OutputStreamWriter(var1.getOutputStream()); // L: 42
+			var2.write("data1=req"); // L: 43
+			var2.flush(); // L: 44
+			InputStream var3 = var1.getInputStream(); // L: 45
+			Buffer var4 = new Buffer(new byte[1000]); // L: 46
 
-		for (int var3 = 0; var3 < var1; ++var3) { // L: 13
-			char var4 = var0.charAt(var3); // L: 14
-			if ((var4 < 'a' || var4 > 'z') && (var4 < 'A' || var4 > 'Z') && (var4 < '0' || var4 > '9') && var4 != '.' && var4 != '-' && var4 != '*' && var4 != '_') { // L: 15
-				if (var4 == ' ') { // L: 16
-					var2.append('+');
-				} else {
-					byte var5 = class295.charToByteCp1252(var4); // L: 18
-					var2.append('%'); // L: 19
-					int var6 = var5 >> 4 & 15; // L: 20
-					if (var6 >= 10) { // L: 21
-						var2.append((char)(var6 + 55));
-					} else {
-						var2.append((char)(var6 + 48)); // L: 22
-					}
-
-					var6 = var5 & 15; // L: 23
-					if (var6 >= 10) { // L: 24
-						var2.append((char)(var6 + 55));
-					} else {
-						var2.append((char)(var6 + 48));
-					}
+			do {
+				int var5 = var3.read(var4.array, var4.offset, 1000 - var4.offset); // L: 48
+				if (var5 == -1) { // L: 49
+					var4.offset = 0; // L: 55
+					long var7 = var4.readLong(); // L: 56
+					return var7; // L: 57
 				}
-			} else {
-				var2.append(var4); // L: 25
-			}
-		}
 
-		return var2.toString(); // L: 28
+				var4.offset += var5; // L: 50
+			} while(var4.offset < 1000); // L: 51
+
+			return 0L; // L: 52
+		} catch (Exception var9) { // L: 59
+			return 0L; // L: 60
+		}
 	}
 
-	@ObfuscatedName("t")
+	@ObfuscatedName("jb")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "112"
+		descriptor = "(I)V",
+		garbageValue = "18890283"
 	)
-	static final void method1095() {
-		Object var10000 = null; // L: 187
-		String var0 = "Your ignore list is full. Max of 100 for free users, and 400 for members";
-		class290.addGameMessage(30, "", var0); // L: 189
-	} // L: 191
-
-	@ObfuscatedName("n")
-	@ObfuscatedSignature(
-		descriptor = "(ZB)V",
-		garbageValue = "7"
-	)
-	public static void method1096(boolean var0) {
-		if (var0 != DevicePcmPlayerProvider.ItemComposition_inMembersWorld) { // L: 573
-			ObjectSound.method1702(); // L: 574
-			DevicePcmPlayerProvider.ItemComposition_inMembersWorld = var0; // L: 575
+	static void method1227() {
+		if (VertexNormal.worldMap != null) { // L: 4852
+			VertexNormal.worldMap.method9011(class511.field5137.field1318, (StudioGame.field4084.vmethod8670() >> 7) + class511.field5137.field1321, (StudioGame.field4084.vmethod8671() >> 7) + class511.field5137.field1323, false); // L: 4853
+			VertexNormal.worldMap.loadCache(); // L: 4854
 		}
 
-	} // L: 577
+	} // L: 4856
+
+	@ObfuscatedName("jz")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "1"
+	)
+	@Export("getWindowedMode")
+	static int getWindowedMode() {
+		return Client.isResizable ? 2 : 1; // L: 4882
+	}
 }

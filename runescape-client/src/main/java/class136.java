@@ -1,108 +1,135 @@
-import java.net.URL;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ed")
-public class class136 extends class144 {
-	@ObfuscatedName("z")
+@ObfuscatedName("fi")
+public class class136 implements class400 {
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Lfi;"
+	)
+	static final class136 field1609;
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "Lfi;"
+	)
+	static final class136 field1601;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lfi;"
+	)
+	static final class136 field1599;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lfi;"
+	)
+	static final class136 field1602;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lfi;"
+	)
+	static final class136 field1600;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lfi;"
+	)
+	static final class136 field1611;
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lqh;"
+	)
+	@Export("ItemComposition_fontPlain11")
+	static Font ItemComposition_fontPlain11;
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 108140015
+		intValue = 669295793
 	)
-	static int field1612;
-	@ObfuscatedName("m")
-	@Export("BZip2Decompressor_block")
-	static int[] BZip2Decompressor_block;
-	@ObfuscatedName("c")
+	final int field1605;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 1682759161
+		intValue = 1253664005
 	)
-	int field1615;
-	// $FF: synthetic field
+	final int field1606;
+	@ObfuscatedName("ab")
+	@ObfuscatedGetter(
+		intValue = 426669381
+	)
+	final int field1607;
+
+	static {
+		field1609 = new class136(0, 0, (String)null, 0); // L: 14
+		field1601 = new class136(1, 1, (String)null, 9); // L: 15
+		field1599 = new class136(2, 2, (String)null, 3); // L: 16
+		field1602 = new class136(3, 3, (String)null, 6); // L: 17
+		field1600 = new class136(4, 4, (String)null, 1); // L: 18
+		field1611 = new class136(5, 5, (String)null, 3); // L: 19
+	}
+
+	class136(int var1, int var2, String var3, int var4) {
+		this.field1605 = var1; // L: 29
+		this.field1606 = var2;
+		this.field1607 = var4; // L: 31
+	} // L: 32
+
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Leu;"
+		descriptor = "(I)I",
+		garbageValue = "2071992588"
 	)
-	final class145 this$0;
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1606; // L: 46
+	}
 
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Leu;)V"
+		descriptor = "(I)I",
+		garbageValue = "-619182222"
 	)
-	class136(class145 var1) {
-		this.this$0 = var1;
-		this.field1615 = -1; // L: 82
-	} // L: 84
+	int method3168() {
+		return this.field1607; // L: 41
+	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;I)V",
-		garbageValue = "355261812"
+		descriptor = "(I)[Loa;",
+		garbageValue = "-1507088397"
 	)
-	void vmethod3137(Buffer var1) {
-		this.field1615 = var1.readUnsignedShort(); // L: 87
-		var1.readUnsignedByte(); // L: 88
-		if (var1.readUnsignedByte() != 255) { // L: 89
-			--var1.offset; // L: 90
-			var1.readLong(); // L: 91
-		}
+	@Export("PlayerType_values")
+	public static PlayerType[] PlayerType_values() {
+		return new PlayerType[]{PlayerType.field4462, PlayerType.field4449, PlayerType.field4453, PlayerType.PlayerType_ultimateIronman, PlayerType.PlayerType_normal, PlayerType.PlayerType_jagexModerator, PlayerType.PlayerType_ironman, PlayerType.field4451, PlayerType.field4457, PlayerType.field4450, PlayerType.PlayerType_playerModerator, PlayerType.field4456, PlayerType.field4441, PlayerType.field4455, PlayerType.field4454, PlayerType.PlayerType_hardcoreIronman, PlayerType.field4448}; // L: 30
+	}
 
-	} // L: 93
-
-	@ObfuscatedName("v")
+	@ObfuscatedName("im")
 	@ObfuscatedSignature(
-		descriptor = "(Lex;I)V",
-		garbageValue = "1368590037"
+		descriptor = "(Lde;B)V",
+		garbageValue = "12"
 	)
-	void vmethod3138(ClanChannel var1) {
-		var1.removeMember(this.field1615); // L: 96
-	} // L: 97
+	static final void method3174(class101 var0) {
+		int[] var1 = var0.field1319.field1409; // L: 4286
 
-	@ObfuscatedName("c")
-	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "1973466779"
-	)
-	@Export("loadWorlds")
-	static boolean loadWorlds() {
-		try {
-			if (class174.World_request == null) { // L: 31
-				class174.World_request = class138.urlRequester.request(new URL(Client.field481));
-			} else if (class174.World_request.isDone()) { // L: 33
-				byte[] var0 = class174.World_request.getResponse(); // L: 34
-				Buffer var1 = new Buffer(var0); // L: 35
-				var1.readInt(); // L: 36
-				World.World_count = var1.readUnsignedShort(); // L: 37
-				class362.World_worlds = new World[World.World_count]; // L: 38
-
-				World var3;
-				for (int var2 = 0; var2 < World.World_count; var3.index = var2++) { // L: 39 47
-					var3 = class362.World_worlds[var2] = new World(); // L: 40
-					var3.id = var1.readUnsignedShort(); // L: 41
-					var3.properties = var1.readInt(); // L: 42
-					var3.host = var1.readStringCp1252NullTerminated(); // L: 43
-					var3.activity = var1.readStringCp1252NullTerminated(); // L: 44
-					var3.location = var1.readUnsignedByte(); // L: 45
-					var3.population = var1.readShort(); // L: 46
+		int var2;
+		for (var2 = 0; var2 < var0.field1319.field1404; ++var2) { // L: 4287
+			Player var5 = var0.field1326[var1[var2]]; // L: 4288
+			if (var5 != null && var5.field1206 > 0) { // L: 4289
+				--var5.field1206; // L: 4290
+				if (var5.field1206 == 0) { // L: 4291
+					var5.field1211 = null;
 				}
-
-				MouseRecorder.sortWorlds(class362.World_worlds, 0, class362.World_worlds.length - 1, World.World_sortOption1, World.World_sortOption2); // L: 49
-				class174.World_request = null; // L: 50
-				return true; // L: 51
 			}
-		} catch (Exception var4) { // L: 55
-			var4.printStackTrace(); // L: 56
-			class174.World_request = null; // L: 57
 		}
 
-		return false; // L: 59
-	}
+		for (var2 = 0; var2 < var0.field1329; ++var2) { // L: 4294
+			int var3 = var0.field1330[var2]; // L: 4295
+			class103 var4 = var0.field1315[var3]; // L: 4296
+			if (var4 != null && var4.field1206 > 0) { // L: 4297
+				--var4.field1206; // L: 4298
+				if (var4.field1206 == 0) { // L: 4299
+					var4.field1211 = null;
+				}
+			}
+		}
 
-	@ObfuscatedName("c")
-	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "695321125"
-	)
-	public static int method2923(int var0, int var1) {
-		return (int)Math.round(Math.atan2((double)var0, (double)var1) * 2607.5945876176133D) & 16383; // L: 24
-	}
+	} // L: 4302
 }
