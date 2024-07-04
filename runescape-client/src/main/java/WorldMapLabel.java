@@ -4,33 +4,33 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("iz")
+@ObfuscatedName("km")
 @Implements("WorldMapLabel")
 public class WorldMapLabel {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@Export("text")
 	String text;
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = 1772526111
+		intValue = 265924559
 	)
 	@Export("width")
 	int width;
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -1037270607
+		intValue = -2136908715
 	)
 	@Export("height")
 	int height;
-	@ObfuscatedName("f")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lhq;"
+		descriptor = "Ljx;"
 	)
 	@Export("size")
 	WorldMapLabelSize size;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;IILhq;)V"
+		descriptor = "(Ljava/lang/String;IILjx;)V"
 	)
 	WorldMapLabel(String var1, int var2, int var3, WorldMapLabelSize var4) {
 		this.text = var1; // L: 10
@@ -39,32 +39,42 @@ public class WorldMapLabel {
 		this.size = var4; // L: 13
 	} // L: 14
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Llh;B)V",
-		garbageValue = "-115"
+		descriptor = "([FIFI)F",
+		garbageValue = "784704657"
 	)
-	public static void method5000(AbstractArchive var0) {
-		VarcInt.VarcInt_archive = var0; // L: 15
-	} // L: 16
+	static float method5003(float[] var0, int var1, float var2) {
+		float var3 = var0[var1]; // L: 108
 
-	@ObfuscatedName("e")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1560877857"
-	)
-	public static void method4999() {
-		try {
-			JagexCache.JagexCache_dat2File.close(); // L: 295
-
-			for (int var0 = 0; var0 < class142.idxCount; ++var0) { // L: 296
-				class359.JagexCache_idxFiles[var0].close();
-			}
-
-			JagexCache.JagexCache_idx255File.close(); // L: 297
-			JagexCache.JagexCache_randomDat.close(); // L: 298
-		} catch (Exception var2) { // L: 300
+		for (int var4 = var1 - 1; var4 >= 0; --var4) { // L: 109
+			var3 = var3 * var2 + var0[var4]; // L: 110
 		}
 
-	} // L: 301
+		return var3; // L: 112
+	}
+
+	@ObfuscatedName("be")
+	@ObfuscatedSignature(
+		descriptor = "(ILdg;ZI)I",
+		garbageValue = "-14417832"
+	)
+	static int method5004(int var0, Script var1, boolean var2) {
+		int var3;
+		if (var0 == 3500) { // L: 2913
+			var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize]; // L: 2914
+			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Client.field728.method4384(var3) ? 1 : 0; // L: 2915
+			return 1; // L: 2916
+		} else if (var0 == 3501) { // L: 2918
+			var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize]; // L: 2919
+			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Client.field728.method4383(var3) ? 1 : 0; // L: 2920
+			return 1; // L: 2921
+		} else if (var0 == 3502) { // L: 2923
+			var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize]; // L: 2924
+			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Client.field728.method4385(var3) ? 1 : 0; // L: 2925
+			return 1; // L: 2926
+		} else {
+			return 2; // L: 2928
+		}
+	}
 }
