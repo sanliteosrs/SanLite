@@ -2,16 +2,12 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import netscape.javascript.JSObject;
 
-@ObfuscatedName("dd")
+@ObfuscatedName("em")
 @Implements("UserComparator7")
 public class UserComparator7 extends AbstractUserComparator {
-	@ObfuscatedName("el")
-	@ObfuscatedSignature(
-		descriptor = "Llc;"
-	)
-	static Archive field1383;
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -19,10 +15,10 @@ public class UserComparator7 extends AbstractUserComparator {
 		this.reversed = var1; // L: 10
 	} // L: 11
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lnm;Lnm;I)I",
-		garbageValue = "-1964984147"
+		descriptor = "(Lsh;Lsh;I)I",
+		garbageValue = "396253425"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -37,35 +33,40 @@ public class UserComparator7 extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2); // L: 21
 	}
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("hi")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lfs;",
-		garbageValue = "-125"
+		descriptor = "(Ldz;B)V",
+		garbageValue = "57"
 	)
-	@Export("getEnum")
-	public static EnumComposition getEnum(int var0) {
-		EnumComposition var1 = (EnumComposition)EnumComposition.EnumDefinition_cached.get((long)var0); // L: 29
-		if (var1 != null) { // L: 30
-			return var1;
-		} else {
-			byte[] var2 = EnumComposition.EnumDefinition_archive.takeFile(8, var0); // L: 31
-			var1 = new EnumComposition(); // L: 32
-			if (var2 != null) { // L: 33
-				var1.decode(new Buffer(var2));
+	static void method3008(class94 var0) {
+		if (Client.field535 != var0) { // L: 2118
+			Client.field535 = var0; // L: 2119
+		}
+	} // L: 2120
+
+	@ObfuscatedName("oe")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)V",
+		garbageValue = "1428864638"
+	)
+	static void method3002(String var0) {
+		class18.field81 = var0; // L: 13389
+
+		try {
+			String var1 = class415.client.getParameter(Integer.toString(18)); // L: 13391
+			String var2 = class415.client.getParameter(Integer.toString(13)); // L: 13392
+			String var3 = var1 + "settings=" + var0 + "; version=1; path=/; domain=" + var2; // L: 13393
+			if (var0.length() == 0) { // L: 13394
+				var3 = var3 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
+			} else {
+				var3 = var3 + "; Expires=" + class152.method3299(WorldMapData_1.method4861() + 94608000000L) + "; Max-Age=" + 94608000L; // L: 13395
 			}
 
-			EnumComposition.EnumDefinition_cached.put(var1, (long)var0); // L: 34
-			return var1; // L: 35
+			Client var4 = class415.client; // L: 13396
+			String var5 = "document.cookie=\"" + var3 + "\""; // L: 13397
+			JSObject.getWindow(var4).eval(var5); // L: 13400
+		} catch (Throwable var6) { // L: 13403
 		}
-	}
 
-	@ObfuscatedName("f")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lbr;",
-		garbageValue = "260622968"
-	)
-	@Export("Messages_getMessage")
-	static Message Messages_getMessage(int var0) {
-		return (Message)Messages.Messages_hashTable.get((long)var0); // L: 40
-	}
+	} // L: 13404
 }

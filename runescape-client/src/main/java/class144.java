@@ -1,22 +1,70 @@
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("el")
-public abstract class class144 extends Node {
-	class144() {
-	} // L: 49
-
-	@ObfuscatedName("c")
-	@ObfuscatedSignature(
-		descriptor = "(Lqt;I)V",
-		garbageValue = "355261812"
+@ObfuscatedName("fk")
+public class class144 extends class147 {
+	@ObfuscatedName("aq")
+	@ObfuscatedGetter(
+		intValue = 220879453
 	)
-	abstract void vmethod3137(Buffer var1);
-
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(Lex;I)V",
-		garbageValue = "1368590037"
+	int field1679;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = 1092215929
 	)
-	abstract void vmethod3138(ClanChannel var1);
+	int field1677;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -1641898427
+	)
+	int field1676;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -234504907
+	)
+	int field1680;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfn;"
+	)
+	final class150 this$0;
+
+	@ObfuscatedSignature(
+		descriptor = "(Lfn;)V"
+	)
+	class144(class150 var1) {
+		this.this$0 = var1;
+		this.field1679 = -1; // L: 158
+	} // L: 163
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(Lvp;B)V",
+		garbageValue = "118"
+	)
+	void vmethod3528(Buffer var1) {
+		this.field1679 = var1.readUnsignedShort(); // L: 166
+		this.field1677 = var1.readInt(); // L: 167
+		this.field1676 = var1.readUnsignedByte(); // L: 168
+		this.field1680 = var1.readUnsignedByte(); // L: 169
+	} // L: 170
+
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "(Lgk;B)V",
+		garbageValue = "3"
+	)
+	void vmethod3530(ClanSettings var1) {
+		var1.method3363(this.field1679, this.field1677, this.field1676, this.field1680); // L: 173
+	} // L: 174
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-33"
+	)
+	public static void method3244() {
+		VarbitComposition.VarbitDefinition_cached.clear(); // L: 55
+	} // L: 56
 }

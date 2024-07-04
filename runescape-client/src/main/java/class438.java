@@ -1,21 +1,28 @@
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pp")
-public class class438 {
-	@ObfuscatedName("q")
-	@ObfuscatedGetter(
-		intValue = -1532753849
+@ObfuscatedName("qr")
+public class class438 extends class444 {
+	@ObfuscatedSignature(
+		descriptor = "(Lro;)V"
 	)
-	static final int field4680;
-	@ObfuscatedName("f")
-	@ObfuscatedGetter(
-		intValue = 875475555
-	)
-	static final int field4683;
+	public class438(class444 var1) {
+		super(var1); // L: 8
+		super.field4814 = "SwapSongTask"; // L: 9
+	} // L: 10
 
-	static {
-		field4680 = (int)(Math.pow(2.0D, 4.0D) - 1.0D); // L: 10
-		field4683 = (int)(Math.pow(2.0D, 8.0D) - 1.0D); // L: 11
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(S)Z",
+		garbageValue = "-4307"
+	)
+	public boolean vmethod8276() {
+		if (class330.field3584.size() > 1 && class330.field3584.get(0) != null && ((class342)class330.field3584.get(0)).field3713.isReady() && class330.field3584.get(1) != null && ((class342)class330.field3584.get(1)).field3713.isReady()) { // L: 14
+			class342 var1 = (class342)class330.field3584.get(0); // L: 15
+			class330.field3584.set(0, class330.field3584.get(1)); // L: 16
+			class330.field3584.set(1, var1); // L: 17
+		}
+
+		return true; // L: 19
 	}
 }
