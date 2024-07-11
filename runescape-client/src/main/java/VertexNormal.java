@@ -4,30 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hj")
+@ObfuscatedName("lm")
 @Implements("VertexNormal")
 public class VertexNormal {
-	@ObfuscatedName("v")
+	@ObfuscatedName("wp")
+	@ObfuscatedSignature(
+		descriptor = "Ltw;"
+	)
+	@Export("worldMap")
+	static WorldMap worldMap;
+	@ObfuscatedName("aq")
 	@ObfuscatedGetter(
-		intValue = 852204679
+		intValue = -34813589
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("q")
+	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = -2028083131
+		intValue = 1220267967
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("f")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = 1173750943
+		intValue = 143019549
 	)
 	@Export("z")
 	int z;
-	@ObfuscatedName("j")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -860468825
+		intValue = 214699869
 	)
 	@Export("magnitude")
 	int magnitude;
@@ -36,7 +42,7 @@ public class VertexNormal {
 	} // L: 9
 
 	@ObfuscatedSignature(
-		descriptor = "(Lhj;)V"
+		descriptor = "(Llm;)V"
 	)
 	VertexNormal(VertexNormal var1) {
 		this.x = var1.x; // L: 12
@@ -45,62 +51,25 @@ public class VertexNormal {
 		this.magnitude = var1.magnitude; // L: 15
 	} // L: 16
 
-	@ObfuscatedName("e")
+	@ObfuscatedName("hd")
 	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "886166360"
+		descriptor = "(Lmb;I)V",
+		garbageValue = "860894148"
 	)
-	public static boolean method4528(int var0) {
-		return var0 >= 0 && var0 < 112 ? KeyHandler.field136[var0] : false;
-	}
-
-	@ObfuscatedName("y")
-	@ObfuscatedSignature(
-		descriptor = "([BIILgg;[Lgv;I)V",
-		garbageValue = "-1413330538"
-	)
-	static final void method4527(byte[] var0, int var1, int var2, Scene var3, CollisionMap[] var4) {
-		Buffer var5 = new Buffer(var0); // L: 228
-		int var6 = -1; // L: 229
-
-		while (true) {
-			int var7 = var5.method7770(); // L: 231
-			if (var7 == 0) { // L: 232
-				return; // L: 256
-			}
-
-			var6 += var7; // L: 233
-			int var8 = 0; // L: 234
-
-			while (true) {
-				int var9 = var5.readUShortSmart(); // L: 236
-				if (var9 == 0) { // L: 237
-					break;
-				}
-
-				var8 += var9 - 1; // L: 238
-				int var10 = var8 & 63; // L: 239
-				int var11 = var8 >> 6 & 63; // L: 240
-				int var12 = var8 >> 12; // L: 241
-				int var13 = var5.readUnsignedByte(); // L: 242
-				int var14 = var13 >> 2; // L: 243
-				int var15 = var13 & 3; // L: 244
-				int var16 = var11 + var1; // L: 245
-				int var17 = var10 + var2; // L: 246
-				if (var16 > 0 && var17 > 0 && var16 < 103 && var17 < 103) { // L: 247
-					int var18 = var12; // L: 248
-					if ((Tiles.Tiles_renderFlags[1][var16][var17] & 2) == 2) { // L: 249
-						var18 = var12 - 1;
-					}
-
-					CollisionMap var19 = null; // L: 250
-					if (var18 >= 0) { // L: 251
-						var19 = var4[var18];
-					}
-
-					class268.addObjects(var12, var16, var17, var6, var15, var14, var3, var19); // L: 252
-				}
-			}
-		}
-	}
+	static void method5914(PacketBufferNode var0) {
+		var0.packetBuffer.method9609(WorldMapSectionType.field2665.hash); // L: 2843
+		var0.packetBuffer.method9609(class388.field4545.hash); // L: 2844
+		var0.packetBuffer.writeIntME(class195.field2052.hash); // L: 2845
+		var0.packetBuffer.writeInt(ApproximateRouteStrategy.archive2.hash); // L: 2846
+		var0.packetBuffer.method9611(class145.field1684.hash); // L: 2847
+		var0.packetBuffer.method9609(VarpDefinition.field1881.hash); // L: 2848
+		var0.packetBuffer.writeIntME(PlayerComposition.field3785.hash); // L: 2849
+		var0.packetBuffer.writeIntME(class157.field1756.hash); // L: 2850
+		var0.packetBuffer.writeIntME(class476.archive12.hash); // L: 2851
+		var0.packetBuffer.writeInt(0); // L: 2852
+		var0.packetBuffer.method9611(class151.field1715.hash); // L: 2853
+		var0.packetBuffer.writeInt(class498.field5069.hash); // L: 2854
+		var0.packetBuffer.method9611(LoginScreenAnimation.field1296.hash); // L: 2855
+		var0.packetBuffer.writeIntME(class68.field497.hash); // L: 2856
+	} // L: 2857
 }

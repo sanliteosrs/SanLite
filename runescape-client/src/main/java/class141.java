@@ -1,111 +1,175 @@
+import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ec")
-public class class141 extends class144 {
-	@ObfuscatedName("jm")
-	@ObfuscatedGetter(
-		intValue = -1799721325
+@ObfuscatedName("fz")
+class class141 implements Callable {
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lvv;"
 	)
-	@Export("oculusOrbFocalPointY")
-	static int oculusOrbFocalPointY;
-	@ObfuscatedName("c")
-	@ObfuscatedGetter(
-		intValue = 1400461077
-	)
-	int field1659;
-	@ObfuscatedName("v")
-	byte field1660;
-	@ObfuscatedName("q")
-	@ObfuscatedGetter(
-		intValue = 1585058459
-	)
-	int field1658;
-	@ObfuscatedName("f")
-	String field1656;
+	static IndexedSprite field1647;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Leu;"
+		descriptor = "Lft;"
 	)
-	final class145 this$0;
+	final class142 this$0;
+	// $FF: synthetic field
+	final int val$workStart;
+	// $FF: synthetic field
+	final int val$workEnd;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "[Lfg;"
+	)
+	final class134[] val$curveLoadJobs;
 
 	@ObfuscatedSignature(
-		descriptor = "(Leu;)V"
+		descriptor = "(Lft;II[Lfg;)V"
 	)
-	class141(class145 var1) {
-		this.this$0 = var1;
-		this.field1659 = -1; // L: 125
-	} // L: 130
-
-	@ObfuscatedName("c")
-	@ObfuscatedSignature(
-		descriptor = "(Lqt;I)V",
-		garbageValue = "355261812"
-	)
-	void vmethod3137(Buffer var1) {
-		var1.readUnsignedByte(); // L: 133
-		this.field1659 = var1.readUnsignedShort(); // L: 134
-		this.field1660 = var1.readByte(); // L: 135
-		this.field1658 = var1.readUnsignedShort(); // L: 136
-		var1.readLong(); // L: 137
-		this.field1656 = var1.readStringCp1252NullTerminated(); // L: 138
-		var1.readUnsignedByte(); // L: 139
-	} // L: 140
-
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(Lex;I)V",
-		garbageValue = "1368590037"
-	)
-	void vmethod3138(ClanChannel var1) {
-		ClanChannelMember var2 = (ClanChannelMember)var1.members.get(this.field1659); // L: 143
-		var2.rank = this.field1660; // L: 144
-		var2.world = this.field1658; // L: 145
-		var2.username = new Username(this.field1656); // L: 146
-	} // L: 147
-
-	@ObfuscatedName("q")
-	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "-113948023"
-	)
-	public static int method3048(int var0) {
-		return (var0 & class438.field4680) - 1; // L: 26
+	class141(class142 var1, int var2, int var3, class134[] var4) {
+		this.this$0 = var1; // L: 97
+		this.val$workStart = var2;
+		this.val$workEnd = var3;
+		this.val$curveLoadJobs = var4;
 	}
 
-	@ObfuscatedName("f")
-	@ObfuscatedSignature(
-		descriptor = "(IIIIIII)I",
-		garbageValue = "-612042966"
-	)
-	public static int method3044(int var0, int var1, int var2, int var3, int var4, int var5) {
-		if ((var5 & 1) == 1) { // L: 38
-			int var6 = var3; // L: 39
-			var3 = var4; // L: 40
-			var4 = var6; // L: 41
+	public Object call() {
+		for (int var1 = this.val$workStart; var1 < this.val$workEnd; ++var1) { // L: 100
+			this.val$curveLoadJobs[var1].call(); // L: 101
 		}
 
-		var2 &= 3; // L: 43
-		if (var2 == 0) { // L: 44
-			return var1;
-		} else if (var2 == 1) { // L: 45
-			return 7 - var0 - (var3 - 1);
+		return null; // L: 103
+	}
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(Lok;I)V",
+		garbageValue = "-2004109183"
+	)
+	public static void method3201(AbstractArchive var0) {
+		class292.InvDefinition_archive = var0; // L: 17
+	} // L: 18
+
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "(CLpe;I)C",
+		garbageValue = "140825595"
+	)
+	@Export("standardizeChar")
+	static char standardizeChar(char var0, Language var1) {
+		if (var0 >= 192 && var0 <= 255) { // L: 69
+			if (var0 >= 192 && var0 <= 198) {
+				return 'A';
+			}
+
+			if (var0 == 199) {
+				return 'C';
+			}
+
+			if (var0 >= 200 && var0 <= 203) {
+				return 'E';
+			}
+
+			if (var0 >= 204 && var0 <= 207) {
+				return 'I';
+			}
+
+			if (var0 == 209 && var1 != Language.Language_ES) { // L: 74
+				return 'N';
+			}
+
+			if (var0 >= 210 && var0 <= 214) {
+				return 'O';
+			}
+
+			if (var0 >= 217 && var0 <= 220) {
+				return 'U';
+			}
+
+			if (var0 == 221) {
+				return 'Y';
+			}
+
+			if (var0 == 223) {
+				return 's';
+			}
+
+			if (var0 >= 224 && var0 <= 230) { // L: 79
+				return 'a';
+			}
+
+			if (var0 == 231) { // L: 80
+				return 'c';
+			}
+
+			if (var0 >= 232 && var0 <= 235) {
+				return 'e';
+			}
+
+			if (var0 >= 236 && var0 <= 239) {
+				return 'i'; // L: 82
+			}
+
+			if (var0 == 241 && var1 != Language.Language_ES) { // L: 83
+				return 'n';
+			}
+
+			if (var0 >= 242 && var0 <= 246) { // L: 84
+				return 'o';
+			}
+
+			if (var0 >= 249 && var0 <= 252) { // L: 85
+				return 'u';
+			}
+
+			if (var0 == 253 || var0 == 255) { // L: 86
+				return 'y';
+			}
+		}
+
+		if (var0 == 338) { // L: 88
+			return 'O';
+		} else if (var0 == 339) { // L: 89
+			return 'o';
+		} else if (var0 == 376) { // L: 90
+			return 'Y';
 		} else {
-			return var2 == 2 ? 7 - var1 - (var4 - 1) : var0; // L: 46
+			return var0; // L: 91
 		}
 	}
 
-	@ObfuscatedName("u")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1644827355"
+		descriptor = "(III)Ldg;",
+		garbageValue = "1680118295"
 	)
-	public static void method3047() {
-		ObjectComposition.ObjectDefinition_cached.clear(); // L: 429
-		ObjectComposition.ObjectDefinition_cachedModelData.clear(); // L: 430
-		ObjectComposition.ObjectDefinition_cachedEntities.clear(); // L: 431
-		ObjectComposition.ObjectDefinition_cachedModels.clear(); // L: 432
-	} // L: 433
+	static Script method3202(int var0, int var1) {
+		Script var2 = (Script)Script.Script_cached.get((long)(var0 << 16)); // L: 61
+		if (var2 != null) { // L: 62
+			return var2; // L: 63
+		} else {
+			String var3 = String.valueOf(var0); // L: 65
+			int var4 = class476.archive12.getGroupId(var3); // L: 66
+			if (var4 == -1) { // L: 67
+				return null; // L: 68
+			} else {
+				byte[] var5 = class476.archive12.takeFileFlat(var4); // L: 70
+				if (var5 != null) { // L: 71
+					if (var5.length <= 1) { // L: 72
+						return null; // L: 73
+					}
+
+					var2 = class154.newScript(var5); // L: 75
+					if (var2 != null) { // L: 76
+						Script.Script_cached.put(var2, (long)(var0 << 16)); // L: 77
+						return var2; // L: 78
+					}
+				}
+
+				return null; // L: 81
+			}
+		}
+	}
 }
