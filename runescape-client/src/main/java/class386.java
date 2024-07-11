@@ -2,125 +2,209 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ni")
-public final class class386 {
-	@ObfuscatedName("c")
+@ObfuscatedName("oh")
+public class class386 extends DualNode {
+	@ObfuscatedName("is")
 	@ObfuscatedSignature(
-		descriptor = "[Lni;"
+		descriptor = "Lsp;"
 	)
-	public static class386[] field4389;
-	@ObfuscatedName("v")
-	@ObfuscatedGetter(
-		intValue = 1938256603
-	)
-	static int field4386;
-	@ObfuscatedName("q")
-	@ObfuscatedGetter(
-		intValue = 585469667
-	)
-	public static int field4385;
-	@ObfuscatedName("f")
-	float field4388;
-	@ObfuscatedName("j")
-	float field4387;
-	@ObfuscatedName("e")
-	float field4390;
-	@ObfuscatedName("g")
-	float field4391;
-
-	static {
-		field4389 = new class386[0]; // L: 4
-		field4386 = 100; // L: 10
-		field4389 = new class386[100]; // L: 11
-		field4385 = 0; // L: 12
-		new class386();
-	} // L: 18
-
-	public class386() {
-		this.method6951(); // L: 32
-	} // L: 33
-
-	@ObfuscatedName("c")
+	static AbstractSocket field4521;
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1892686311"
+		descriptor = "Loz;"
 	)
-	public void method6936() {
-		synchronized(field4389) { // L: 26
-			if (field4385 < field4386 - 1) { // L: 27
-				field4389[++field4385 - 1] = this;
+	Archive field4523;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = -2065166421
+	)
+	int field4524;
+	@ObfuscatedName("ag")
+	byte field4522;
+
+	class386() {
+	} // L: 10
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(II)F",
+		garbageValue = "-704186007"
+	)
+	static final float method7177(int var0) {
+		float var1 = 10075.0F - (float)var0; // L: 17
+		return (var1 * 1.0075567F - 75.56675F) / var1; // L: 18
+	}
+
+	@ObfuscatedName("jf")
+	@ObfuscatedSignature(
+		descriptor = "(Ldw;B)V",
+		garbageValue = "111"
+	)
+	static final void method7176(Actor var0) {
+		var0.field1193 = false; // L: 4694
+		if (var0.field1198 != -1) { // L: 4695
+			SequenceDefinition var1 = class353.SequenceDefinition_get(var0.field1198); // L: 4696
+			if (var1 != null) { // L: 4697
+				if (!var1.isCachedModelIdSet() && var1.frameIds != null) { // L: 4698
+					++var0.field1233; // L: 4699
+					if (var0.field1232 < var1.frameIds.length && var0.field1233 > var1.frameLengths[var0.field1232]) { // L: 4700
+						var0.field1233 = 1; // L: 4701
+						++var0.field1232; // L: 4702
+						class188.method3684(var1, var0.field1232, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4703
+					}
+
+					if (var0.field1232 >= var1.frameIds.length) { // L: 4705
+						if (var1.frameCount > 0) { // L: 4706
+							var0.field1232 -= var1.frameCount; // L: 4707
+							if (var1.field2304) { // L: 4708
+								++var0.field1234;
+							}
+
+							if (var0.field1232 < 0 || var0.field1232 >= var1.frameIds.length || var1.field2304 && var0.field1234 >= var1.field2280) { // L: 4709
+								var0.field1233 = 0; // L: 4710
+								var0.field1232 = 0; // L: 4711
+								var0.field1234 = 0; // L: 4712
+							}
+						} else {
+							var0.field1233 = 0; // L: 4716
+							var0.field1232 = 0; // L: 4717
+						}
+
+						class188.method3684(var1, var0.field1232, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4719
+					}
+				} else if (var1.isCachedModelIdSet()) { // L: 4722
+					++var0.field1232; // L: 4723
+					int var2 = var1.method4059(); // L: 4724
+					if (var0.field1232 < var2) { // L: 4725
+						WorldMapLabelSize.method4571(var1, var0.field1232, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4726
+					} else {
+						if (var1.frameCount > 0) { // L: 4729
+							var0.field1232 -= var1.frameCount; // L: 4730
+							if (var1.field2304) { // L: 4731
+								++var0.field1234;
+							}
+
+							if (var0.field1232 < 0 || var0.field1232 >= var2 || var1.field2304 && var0.field1234 >= var1.field2280) { // L: 4732
+								var0.field1232 = 0; // L: 4733
+								var0.field1233 = 0; // L: 4734
+								var0.field1234 = 0; // L: 4735
+							}
+						} else {
+							var0.field1233 = 0; // L: 4739
+							var0.field1232 = 0; // L: 4740
+						}
+
+						WorldMapLabelSize.method4571(var1, var0.field1232, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4742
+					}
+				} else {
+					var0.field1198 = -1; // L: 4745
+				}
+			} else {
+				var0.field1198 = -1; // L: 4747
 			}
-
 		}
-	} // L: 29
 
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(FFFFI)V",
-		garbageValue = "365980617"
-	)
-	void method6942(float var1, float var2, float var3, float var4) {
-		this.field4388 = var1; // L: 36
-		this.field4387 = var2; // L: 37
-		this.field4390 = var3; // L: 38
-		this.field4391 = var4; // L: 39
-	} // L: 40
+		IterableNodeHashTableIterator var7 = new IterableNodeHashTableIterator(var0.method2482()); // L: 4749
 
-	@ObfuscatedName("q")
-	@ObfuscatedSignature(
-		descriptor = "(FFFFI)V",
-		garbageValue = "1728138085"
-	)
-	public void method6945(float var1, float var2, float var3, float var4) {
-		float var5 = (float)Math.sin((double)(var4 * 0.5F)); // L: 43
-		float var6 = (float)Math.cos((double)(var4 * 0.5F)); // L: 44
-		this.field4388 = var5 * var1; // L: 45
-		this.field4387 = var2 * var5; // L: 46
-		this.field4390 = var3 * var5; // L: 47
-		this.field4391 = var6; // L: 48
-	} // L: 49
+		int var3;
+		for (class477 var6 = (class477)var7.method9230(); var6 != null; var6 = (class477)var7.next()) { // L: 4750
+			if (var6.field4979 != -1 && Client.cycle >= var6.field4981) { // L: 4751
+				var3 = class178.SpotAnimationDefinition_get(var6.field4979).sequence; // L: 4754
+				if (var3 == -1) { // L: 4755
+					var6.remove(); // L: 4756
+					--var0.field1241; // L: 4757
+				} else {
+					var6.field4983 = Math.max(var6.field4983, 0); // L: 4760
+					SequenceDefinition var4 = class353.SequenceDefinition_get(var3); // L: 4761
+					if (var4.frameIds != null && !var4.isCachedModelIdSet()) { // L: 4762
+						++var6.field4980; // L: 4763
+						if (var6.field4983 < var4.frameIds.length && var6.field4980 > var4.frameLengths[var6.field4983]) { // L: 4764
+							var6.field4980 = 1; // L: 4765
+							++var6.field4983; // L: 4766
+							class188.method3684(var4, var6.field4983, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4767
+						}
 
-	@ObfuscatedName("f")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "112"
-	)
-	public final void method6951() {
-		this.field4390 = 0.0F; // L: 52
-		this.field4387 = 0.0F; // L: 53
-		this.field4388 = 0.0F; // L: 54
-		this.field4391 = 1.0F; // L: 55
-	} // L: 56
-
-	@ObfuscatedName("j")
-	@ObfuscatedSignature(
-		descriptor = "(Lni;I)V",
-		garbageValue = "-1489073832"
-	)
-	public final void method6938(class386 var1) {
-		this.method6942(var1.field4388 * this.field4391 + this.field4388 * var1.field4391 + this.field4390 * var1.field4387 - var1.field4390 * this.field4387, this.field4388 * var1.field4390 + var1.field4391 * this.field4387 - this.field4390 * var1.field4388 + var1.field4387 * this.field4391, this.field4391 * var1.field4390 + (this.field4387 * var1.field4388 + var1.field4391 * this.field4390 - var1.field4387 * this.field4388), var1.field4391 * this.field4391 - this.field4388 * var1.field4388 - this.field4387 * var1.field4387 - this.field4390 * var1.field4390); // L: 59
-	} // L: 60
-
-	public int hashCode() {
-		boolean var1 = true; // L: 73
-		float var2 = 1.0F; // L: 74
-		var2 = this.field4388 + var2 * 31.0F; // L: 75
-		var2 = 31.0F * var2 + this.field4387; // L: 76
-		var2 = this.field4390 + var2 * 31.0F; // L: 77
-		var2 = 31.0F * var2 + this.field4391; // L: 78
-		return (int)var2; // L: 79
-	}
-
-	public String toString() {
-		return this.field4388 + "," + this.field4387 + "," + this.field4390 + "," + this.field4391; // L: 84
-	}
-
-	public boolean equals(Object var1) {
-		if (!(var1 instanceof class386)) { // L: 64
-			return false; // L: 68
-		} else {
-			class386 var2 = (class386)var1; // L: 65
-			return var2.field4388 == this.field4388 && this.field4387 == var2.field4387 && var2.field4390 == this.field4390 && var2.field4391 == this.field4391; // L: 66
+						if (var6.field4983 >= var4.frameIds.length) { // L: 4769
+							var6.remove(); // L: 4770
+							--var0.field1241; // L: 4771
+						}
+					} else if (var4.isCachedModelIdSet()) { // L: 4774
+						++var6.field4983; // L: 4775
+						int var5 = var4.method4059(); // L: 4776
+						if (var6.field4983 < var5) { // L: 4777
+							WorldMapLabelSize.method4571(var4, var6.field4983, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4778
+						} else {
+							var6.remove(); // L: 4781
+							--var0.field1241; // L: 4782
+						}
+					} else {
+						var6.remove(); // L: 4786
+						--var0.field1241; // L: 4787
+					}
+				}
+			}
 		}
-	}
+
+		SequenceDefinition var8;
+		if (var0.field1235 != -1 && var0.field1238 <= 1) { // L: 4790
+			var8 = class353.SequenceDefinition_get(var0.field1235); // L: 4791
+			if (var8.field2303 == 1 && var0.field1265 > 0 && var0.field1253 <= Client.cycle && var0.field1260 < Client.cycle) { // L: 4792 4793
+				var0.field1238 = 1; // L: 4794
+				return; // L: 4795
+			}
+		}
+
+		if (var0.field1235 != -1 && var0.field1238 == 0) { // L: 4799
+			var8 = class353.SequenceDefinition_get(var0.field1235); // L: 4800
+			if (var8 != null) { // L: 4801
+				if (!var8.isCachedModelIdSet() && var8.frameIds != null) { // L: 4802
+					++var0.field1237; // L: 4803
+					if (var0.field1236 < var8.frameIds.length && var0.field1237 > var8.frameLengths[var0.field1236]) { // L: 4804
+						var0.field1237 = 1; // L: 4805
+						++var0.field1236; // L: 4806
+						class188.method3684(var8, var0.field1236, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4807
+					}
+
+					if (var0.field1236 >= var8.frameIds.length) { // L: 4809
+						var0.field1236 -= var8.frameCount; // L: 4810
+						++var0.field1214; // L: 4811
+						if (var0.field1214 >= var8.field2280) { // L: 4812
+							var0.field1235 = -1; // L: 4813
+						} else if (var0.field1236 >= 0 && var0.field1236 < var8.frameIds.length) { // L: 4815
+							class188.method3684(var8, var0.field1236, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4819
+						} else {
+							var0.field1235 = -1; // L: 4816
+						}
+					}
+
+					var0.field1193 = var8.field2297; // L: 4822
+				} else if (var8.isCachedModelIdSet()) { // L: 4824
+					++var0.field1236; // L: 4825
+					var3 = var8.method4059(); // L: 4826
+					if (var0.field1236 < var3) { // L: 4827
+						WorldMapLabelSize.method4571(var8, var0.field1236, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4828
+					} else {
+						var0.field1236 -= var8.frameCount; // L: 4831
+						++var0.field1214; // L: 4832
+						if (var0.field1214 >= var8.field2280) { // L: 4833
+							var0.field1235 = -1; // L: 4834
+						} else if (var0.field1236 >= 0 && var0.field1236 < var3) { // L: 4836
+							WorldMapLabelSize.method4571(var8, var0.field1236, var0.x, var0.field1191, SoundCache.localPlayer == var0); // L: 4840
+						} else {
+							var0.field1235 = -1; // L: 4837
+						}
+					}
+				} else {
+					var0.field1235 = -1; // L: 4844
+				}
+			} else {
+				var0.field1235 = -1; // L: 4846
+			}
+		}
+
+		if (var0.field1238 > 0) { // L: 4848
+			--var0.field1238;
+		}
+
+	} // L: 4849
 }

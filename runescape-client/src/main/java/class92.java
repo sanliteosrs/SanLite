@@ -1,34 +1,69 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cz")
-public class class92 {
-	@ObfuscatedName("e")
+@ObfuscatedName("da")
+public enum class92 implements class400 {
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-35"
+		descriptor = "Lda;"
 	)
-	public static void method2389() {
-		HealthBarDefinition.HealthBarDefinition_cached.clear(); // L: 89
-		HealthBarDefinition.HealthBarDefinition_cachedSprites.clear(); // L: 90
-	} // L: 91
-
-	@ObfuscatedName("lr")
+	field1116(0, -1),
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;B)Ljava/lang/String;",
-		garbageValue = "38"
+		descriptor = "Lda;"
 	)
-	static String method2388(String var0) {
-		PlayerType[] var1 = SoundSystem.PlayerType_values(); // L: 12443
+	field1109(1, 2),
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	field1110(2, 3),
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	field1117(3, 4),
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	field1112(4, 5),
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lda;"
+	)
+	field1113(5, 6);
 
-		for (int var2 = 0; var2 < var1.length; ++var2) { // L: 12444
-			PlayerType var3 = var1[var2]; // L: 12445
-			if (var3.modIcon != -1 && var0.startsWith(SecureRandomCallable.method2066(var3.modIcon))) { // L: 12447 12448
-				var0 = var0.substring(6 + Integer.toString(var3.modIcon).length()); // L: 12449
-				break;
-			}
-		}
+	@ObfuscatedName("oe")
+	@ObfuscatedGetter(
+		intValue = 1157769719
+	)
+	static int field1114;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 1580717867
+	)
+	final int field1108;
+	@ObfuscatedName("av")
+	@ObfuscatedGetter(
+		intValue = -2123916961
+	)
+	final int field1115;
 
-		return var0; // L: 12456
+	class92(int var3, int var4) {
+		this.field1108 = var3; // L: 21
+		this.field1115 = var4; // L: 22
+	} // L: 23
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "2071992588"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1115; // L: 27
 	}
 }

@@ -1,69 +1,66 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("go")
-public class class193 {
-	@ObfuscatedName("q")
-	@Export("directions")
-	public static int[][] directions;
-	@ObfuscatedName("f")
-	@Export("distances")
-	public static int[][] distances;
-	@ObfuscatedName("j")
-	@ObfuscatedGetter(
-		intValue = -1258310083
+@ObfuscatedName("hv")
+public class class193 extends DualNode {
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Lmo;"
 	)
-	public static int field2219;
-	@ObfuscatedName("w")
-	@Export("bufferX")
-	public static int[] bufferX;
-	@ObfuscatedName("y")
-	@Export("bufferY")
-	public static int[] bufferY;
+	public static EvictingDualNodeHashTable field2036;
+	@ObfuscatedName("br")
+	@ObfuscatedSignature(
+		descriptor = "Lqa;"
+	)
+	static Bounds field2035;
 
 	static {
-		directions = new int[128][128]; // L: 6
-		distances = new int[128][128]; // L: 7
-		bufferX = new int[4096]; // L: 11
-		bufferY = new int[4096]; // L: 12
+		field2036 = new EvictingDualNodeHashTable(64); // L: 7
 	}
 
-	@ObfuscatedName("ju")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIII)V",
-		garbageValue = "628542116"
+		descriptor = "(B)[Ljb;",
+		garbageValue = "92"
 	)
-	@Export("drawWidgets")
-	static final void drawWidgets(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-		if (WorldMapSection2.loadInterface(var0)) { // L: 10078
-			class12.field62 = null; // L: 10085
-			class14.drawInterface(SoundCache.Widget_interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7); // L: 10086
-			if (class12.field62 != null) { // L: 10087
-				class14.drawInterface(class12.field62, -1412584499, var1, var2, var3, var4, UserComparator5.field1389, SecureRandomFuture.field960, var7); // L: 10088
-				class12.field62 = null; // L: 10089
+	public static class238[] method3759() {
+		return new class238[]{class238.field2511, class238.field2520, class238.field2513, class238.field2519, class238.field2509, class238.field2507, class238.field2512, class238.field2516, class238.field2510}; // L: 25
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(III)I",
+		garbageValue = "-1190585246"
+	)
+	public static int method3757(int var0, int var1) {
+		int var2 = var0 >>> 31; // L: 97
+		return (var0 + var2) / var1 - var2; // L: 98
+	}
+
+	@ObfuscatedName("hn")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "-185854113"
+	)
+	static void method3758(int var0, int var1) {
+		int[] var2 = new int[9]; // L: 1574
+
+		for (int var3 = 0; var3 < var2.length; ++var3) { // L: 1575
+			int var4 = var3 * 32 + 15 + 128; // L: 1576
+			int var5 = var4 * 3 + 600; // L: 1579
+			int var7 = Rasterizer3D.Rasterizer3D_sine[var4]; // L: 1582
+			int var9 = var1 - 334; // L: 1585
+			if (var9 < 0) { // L: 1586
+				var9 = 0;
+			} else if (var9 > 100) { // L: 1587
+				var9 = 100;
 			}
 
-		} else {
-			if (var7 != -1) { // L: 10079
-				Client.field703[var7] = true;
-			} else {
-				for (int var8 = 0; var8 < 100; ++var8) { // L: 10081
-					Client.field703[var8] = true;
-				}
-			}
-
+			int var10 = (Client.zoomWidth - Client.zoomHeight) * var9 / 100 + Client.zoomHeight; // L: 1588
+			int var8 = var5 * var10 / 256; // L: 1589
+			var2[var3] = var8 * var7 >> 16; // L: 1592
 		}
-	} // L: 10083 10091
 
-	@ObfuscatedName("ke")
-	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "98"
-	)
-	static final int method3919() {
-		float var0 = 200.0F * ((float)class19.clientPreferences.method2254() - 0.5F); // L: 11835
-		return 100 - Math.round(var0); // L: 11836
-	}
+		class511.field5137.field1316.method5464(var2, 500, 800, var0 * 334 / var1, 334); // L: 1594
+	} // L: 1595
 }

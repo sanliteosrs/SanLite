@@ -3,10 +3,10 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dm")
+@ObfuscatedName("er")
 @Implements("UserComparator8")
 public class UserComparator8 extends AbstractUserComparator {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -14,10 +14,10 @@ public class UserComparator8 extends AbstractUserComparator {
 		this.reversed = var1; // L: 11
 	} // L: 12
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lnm;Lnm;I)I",
-		garbageValue = "1682683031"
+		descriptor = "(Lsh;Lsh;I)I",
+		garbageValue = "1919618517"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -36,55 +36,37 @@ public class UserComparator8 extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2); // L: 25
 	}
 
-	@ObfuscatedName("if")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "6"
+		descriptor = "(ZB)V",
+		garbageValue = "11"
 	)
-	static void method2571(int var0, int var1) {
-		int var2 = TileItem.fontBold12.stringWidth("Choose Option"); // L: 8663
+	static void method2998(boolean var0) {
+		byte var1 = 0; // L: 1064
+		boolean var2 = class105.clientPreferences.method2594() >= Client.field637; // L: 1067
+		if (!var2) { // L: 1069
+			var1 = 12; // L: 1070
+		} else if (class415.client.method1830() || class415.client.isOtlTokenRequesterInitialized() || class415.client.method1259()) { // L: 1072
+			var1 = 10; // L: 1073
+		}
 
-		int var3;
-		for (var3 = 0; var3 < Client.menuOptionsCount; ++var3) { // L: 8664
-			Font var7 = TileItem.fontBold12; // L: 8665
-			String var8;
-			if (var3 < 0) { // L: 8668
-				var8 = ""; // L: 8669
-			} else if (Client.menuTargets[var3].length() > 0) { // L: 8672
-				var8 = Client.menuActions[var3] + " " + Client.menuTargets[var3];
+		class163.method3447(var1); // L: 1075
+		if (var0) { // L: 1076
+			Login.Login_username = ""; // L: 1077
+			Login.Login_password = ""; // L: 1078
+			class6.field20 = 0; // L: 1079
+			class146.otp = ""; // L: 1080
+		}
+
+		if (Login.Login_username == null || Login.Login_username.length() <= 0) { // L: 1083
+			if (class105.clientPreferences.method2592() != null) { // L: 1084
+				Login.Login_username = class105.clientPreferences.method2592(); // L: 1085
+				Client.Login_isUsernameRemembered = true; // L: 1086
 			} else {
-				var8 = Client.menuActions[var3]; // L: 8673
-			}
-
-			int var6 = var7.stringWidth(var8); // L: 8675
-			if (var6 > var2) { // L: 8676
-				var2 = var6;
+				Client.Login_isUsernameRemembered = false; // L: 1088
 			}
 		}
 
-		var2 += 8; // L: 8678
-		var3 = Client.menuOptionsCount * 15 + 22; // L: 8679
-		int var4 = var0 - var2 / 2; // L: 8680
-		if (var2 + var4 > Script.canvasWidth) { // L: 8681
-			var4 = Script.canvasWidth - var2;
-		}
-
-		if (var4 < 0) { // L: 8682
-			var4 = 0;
-		}
-
-		int var5 = var1; // L: 8683
-		if (var3 + var1 > class78.canvasHeight) { // L: 8684
-			var5 = class78.canvasHeight - var3;
-		}
-
-		if (var5 < 0) { // L: 8685
-			var5 = 0;
-		}
-
-		UserComparator3.menuX = var4; // L: 8686
-		ViewportMouse.menuY = var5; // L: 8687
-		Language.menuWidth = var2; // L: 8688
-		Player.menuHeight = Client.menuOptionsCount * 15 + 22; // L: 8689
-	} // L: 8690
+		UserComparator4.method2995(); // L: 1090
+	} // L: 1091
 }
