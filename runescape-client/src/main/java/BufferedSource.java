@@ -7,37 +7,37 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nw")
+@ObfuscatedName("sz")
 @Implements("BufferedSource")
 public class BufferedSource implements Runnable {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@Export("thread")
 	Thread thread;
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@Export("inputStream")
 	InputStream inputStream;
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = 647895995
+		intValue = 512687671
 	)
 	@Export("capacity")
 	int capacity;
-	@ObfuscatedName("f")
+	@ObfuscatedName("ak")
 	@Export("buffer")
 	byte[] buffer;
-	@ObfuscatedName("j")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 2104008339
+		intValue = 725690807
 	)
 	@Export("position")
 	int position;
-	@ObfuscatedName("e")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 678269677
+		intValue = -1931419243
 	)
 	@Export("limit")
 	int limit;
-	@ObfuscatedName("g")
+	@ObfuscatedName("aj")
 	@Export("exception")
 	IOException exception;
 
@@ -52,10 +52,10 @@ public class BufferedSource implements Runnable {
 		this.thread.start(); // L: 76
 	} // L: 77
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
 		descriptor = "(II)Z",
-		garbageValue = "2131773931"
+		garbageValue = "436261401"
 	)
 	@Export("isAvailable")
 	boolean isAvailable(int var1) throws IOException {
@@ -86,10 +86,10 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "-31"
+		garbageValue = "0"
 	)
 	@Export("available")
 	int available() throws IOException {
@@ -110,15 +110,15 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-1293599351"
+		garbageValue = "1875502007"
 	)
 	@Export("readUnsignedByte")
 	int readUnsignedByte() throws IOException {
 		synchronized(this) { // L: 142
-			if (this.limit == this.position) { // L: 143
+			if (this.position == this.limit) { // L: 143
 				if (this.exception != null) { // L: 144
 					throw new IOException(this.exception.toString());
 				} else {
@@ -133,10 +133,10 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("f")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "([BIIB)I",
-		garbageValue = "-55"
+		descriptor = "([BIII)I",
+		garbageValue = "-316841250"
 	)
 	@Export("read")
 	int read(byte[] var1, int var2, int var3) throws IOException {
@@ -174,10 +174,10 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("j")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-101"
+		descriptor = "(I)V",
+		garbageValue = "-748039453"
 	)
 	@Export("close")
 	void close() {
@@ -241,6 +241,36 @@ public class BufferedSource implements Runnable {
 			synchronized(this) { // L: 106
 				this.limit = (var7 + this.limit) % this.capacity; // L: 107
 			} // L: 108
+		}
+	}
+
+	@ObfuscatedName("bh")
+	@ObfuscatedSignature(
+		descriptor = "(ILdg;ZI)I",
+		garbageValue = "-1252528992"
+	)
+	static int method8745(int var0, Script var1, boolean var2) {
+		if (var0 == 6754) { // L: 5119
+			int var5 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize]; // L: 5120
+			NPCComposition var6 = class76.getNpcDefinition(var5); // L: 5121
+			Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var6 != null ? var6.name : ""; // L: 5122
+			return 1; // L: 5123
+		} else {
+			NPCComposition var3;
+			if (var0 == 6764) { // L: 5125
+				class130.Interpreter_intStackSize -= 2; // L: 5126
+				var3 = class76.getNpcDefinition(Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize]); // L: 5127
+				int var4 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1]; // L: 5128
+				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.method3702(var4); // L: 5129
+				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.method3716(var4); // L: 5130
+				return 1; // L: 5131
+			} else if (var0 == 6765) { // L: 5133
+				var3 = class76.getNpcDefinition(Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize]); // L: 5134
+				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3 != null ? var3.headIconPrayer : 0; // L: 5135
+				return 1; // L: 5136
+			} else {
+				return 2; // L: 5138
+			}
 		}
 	}
 }
