@@ -1,66 +1,98 @@
 import java.net.URL;
-import java.util.List;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ct")
+@ObfuscatedName("ez")
 @Implements("UrlRequest")
 public class UrlRequest {
-	@ObfuscatedName("us")
-	static List field1373;
-	@ObfuscatedName("c")
-	@Export("url")
-	final URL url;
-	@ObfuscatedName("v")
-	@Export("isDone0")
-	volatile boolean isDone0;
-	@ObfuscatedName("q")
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = -1191249779
+	)
+	static int field1479;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -2111422939
+	)
+	static int field1485;
+	@ObfuscatedName("jv")
+	static int[] field1484;
+	@ObfuscatedName("kd")
+	@ObfuscatedSignature(
+		descriptor = "[Lvv;"
+	)
+	@Export("scrollBarSprites")
+	static IndexedSprite[] scrollBarSprites;
+	@ObfuscatedName("aq")
+	final URL field1483;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = 1821102533
+	)
+	volatile int field1482;
+	@ObfuscatedName("ap")
 	@Export("response0")
 	volatile byte[] response0;
 
-	UrlRequest(URL var1) {
-		this.url = var1; // L: 118
-	} // L: 119
+	static {
+		field1479 = -1; // L: 138
+		field1485 = -2; // L: 139
+	}
 
-	@ObfuscatedName("c")
+	UrlRequest(URL var1) {
+		this.field1482 = field1479; // L: 140
+		this.field1483 = var1; // L: 144
+	} // L: 145
+
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "-60"
+		descriptor = "(S)Z",
+		garbageValue = "-15592"
 	)
 	@Export("isDone")
 	public boolean isDone() {
-		return this.isDone0; // L: 122
+		return this.field1482 != field1479; // L: 148
 	}
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
 		descriptor = "(I)[B",
-		garbageValue = "-1112773966"
+		garbageValue = "-872165"
 	)
 	@Export("getResponse")
 	public byte[] getResponse() {
-		return this.response0; // L: 126
+		return this.response0; // L: 152
 	}
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-2136536725"
+		garbageValue = "1943999950"
 	)
-	public String method2553() {
-		return this.url.toString(); // L: 130
+	public String method2978() {
+		return this.field1483.toString(); // L: 156
 	}
 
-	@ObfuscatedName("e")
+	@ObfuscatedName("oa")
 	@ObfuscatedSignature(
-		descriptor = "(ZZI)I",
-		garbageValue = "-1626715483"
+		descriptor = "(IIZI)V",
+		garbageValue = "-1898898128"
 	)
-	public static int method2557(boolean var0, boolean var1) {
-		byte var2 = 0; // L: 143
-		int var3 = var2 + NetCache.NetCache_pendingPriorityWritesCount + NetCache.NetCache_pendingPriorityResponsesCount; // L: 144
-		return var3; // L: 145
-	}
+	static final void method2985(int var0, int var1, boolean var2) {
+		if (Client.currentClanChannels[var0] != null) { // L: 13322
+			if (var1 >= 0 && var1 < Client.currentClanChannels[var0].method3501()) { // L: 13323
+				ClanChannelMember var3 = (ClanChannelMember)Client.currentClanChannels[var0].members.get(var1); // L: 13324
+				PacketBufferNode var4 = class170.getPacketBufferNode(ClientPacket.field3348, Client.packetWriter.isaacCipher); // L: 13325
+				var4.packetBuffer.writeByte(4 + Actor.stringCp1252NullTerminatedByteSize(var3.username.getName())); // L: 13326
+				var4.packetBuffer.writeByte(var0); // L: 13327
+				var4.packetBuffer.writeShort(var1); // L: 13328
+				var4.packetBuffer.writeBoolean(var2); // L: 13329
+				var4.packetBuffer.writeStringCp1252NullTerminated(var3.username.getName()); // L: 13330
+				Client.packetWriter.addNode(var4); // L: 13331
+			}
+		}
+	} // L: 13332
 }
