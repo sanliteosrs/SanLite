@@ -1,0 +1,35 @@
+import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
+
+@ObfuscatedName("tt")
+public class class510 extends class512 {
+	@ObfuscatedName("aq")
+	@ObfuscatedGetter(
+		intValue = -1565062035
+	)
+	int field5134;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = 1298917515
+	)
+	int field5135;
+
+	public class510(int var1, int var2, int var3, int var4) {
+		super(var3, var4); // L: 8
+		this.field5134 = 0; // L: 4
+		this.field5135 = 0; // L: 5
+		this.field5134 = var1; // L: 9
+		this.field5135 = var2; // L: 10
+	} // L: 11
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-368810206"
+	)
+	public int method8959() {
+		double var1 = this.method8971(); // L: 14
+		return (int)Math.round((double)this.field5134 + var1 * (double)(this.field5135 - this.field5134)); // L: 15
+	}
+}

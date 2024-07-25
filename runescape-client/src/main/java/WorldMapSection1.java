@@ -4,42 +4,47 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ir")
+@ObfuscatedName("kw")
 @Implements("WorldMapSection1")
 public class WorldMapSection1 implements WorldMapSection {
-	@ObfuscatedName("c")
+	@ObfuscatedName("fb")
+	@ObfuscatedSignature(
+		descriptor = "Loz;"
+	)
+	static Archive field2728;
+	@ObfuscatedName("aq")
 	@ObfuscatedGetter(
-		intValue = -2036174811
+		intValue = 502415749
 	)
 	@Export("minPlane")
 	int minPlane;
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = 1537995989
+		intValue = 1809402251
 	)
 	@Export("planes")
 	int planes;
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -300775863
+		intValue = 1715220047
 	)
 	@Export("regionStartX")
 	int regionStartX;
-	@ObfuscatedName("f")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 1381396249
+		intValue = 1345453013
 	)
 	@Export("regionStartY")
 	int regionStartY;
-	@ObfuscatedName("j")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1589676553
+		intValue = 407425227
 	)
 	@Export("regionEndX")
 	int regionEndX;
-	@ObfuscatedName("e")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 1377237821
+		intValue = -1317582751
 	)
 	@Export("regionEndY")
 	int regionEndY;
@@ -47,10 +52,10 @@ public class WorldMapSection1 implements WorldMapSection {
 	WorldMapSection1() {
 	} // L: 14
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lhg;I)V",
-		garbageValue = "1585435431"
+		descriptor = "(Ljm;I)V",
+		garbageValue = "1568670940"
 	)
 	@Export("expandBounds")
 	public void expandBounds(WorldMapArea var1) {
@@ -72,10 +77,10 @@ public class WorldMapSection1 implements WorldMapSection {
 
 	} // L: 22
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)Z",
-		garbageValue = "-929111713"
+		descriptor = "(IIIB)Z",
+		garbageValue = "115"
 	)
 	@Export("containsCoord")
 	public boolean containsCoord(int var1, int var2, int var3) {
@@ -86,20 +91,20 @@ public class WorldMapSection1 implements WorldMapSection {
 		}
 	}
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(III)Z",
-		garbageValue = "-47549823"
+		garbageValue = "-898385408"
 	)
 	@Export("containsPosition")
 	public boolean containsPosition(int var1, int var2) {
 		return var1 >> 6 == this.regionEndX && var2 >> 6 == this.regionEndY; // L: 34
 	}
 
-	@ObfuscatedName("f")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)[I",
-		garbageValue = "-561571792"
+		descriptor = "(IIIB)[I",
+		garbageValue = "-35"
 	)
 	@Export("getBorderTileLengths")
 	public int[] getBorderTileLengths(int var1, int var2, int var3) {
@@ -111,10 +116,10 @@ public class WorldMapSection1 implements WorldMapSection {
 		}
 	}
 
-	@ObfuscatedName("j")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(III)Lkd;",
-		garbageValue = "531454030"
+		descriptor = "(III)Lnl;",
+		garbageValue = "-55064754"
 	)
 	@Export("coord")
 	public Coord coord(int var1, int var2) {
@@ -127,10 +132,10 @@ public class WorldMapSection1 implements WorldMapSection {
 		}
 	}
 
-	@ObfuscatedName("e")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;B)V",
-		garbageValue = "-27"
+		descriptor = "(Lvp;I)V",
+		garbageValue = "301668137"
 	)
 	@Export("read")
 	public void read(Buffer var1) {
@@ -143,12 +148,145 @@ public class WorldMapSection1 implements WorldMapSection {
 		this.postRead(); // L: 66
 	} // L: 67
 
-	@ObfuscatedName("g")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1018712398"
+		descriptor = "(S)V",
+		garbageValue = "26437"
 	)
 	@Export("postRead")
 	void postRead() {
 	} // L: 69
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(Lde;Lvp;IIIIIII)V",
+		garbageValue = "-1270068304"
+	)
+	static final void method5043(class101 var0, Buffer var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+		int[][][] var8 = var0.field1327; // L: 175
+		byte[][][] var9 = var0.field1325; // L: 176
+		int var10;
+		if (var2 >= 0 && var2 < 4 && var3 >= 0 && var3 < var8[0].length - 1 && var4 >= 0 && var4 < var8[0][0].length - 1) { // L: 177
+			var9[var2][var3][var4] = 0; // L: 178
+
+			while (true) {
+				var10 = var1.readUnsignedShort(); // L: 180
+				if (var10 == 0) { // L: 181
+					if (var2 == 0) { // L: 182
+						var8[0][var3][var4] = -class177.method3567(var5 + 932731, 556238 + var6) * 8;
+					} else {
+						var8[var2][var3][var4] = var8[var2 - 1][var3][var4] - 240; // L: 183
+					}
+					break;
+				}
+
+				if (var10 == 1) { // L: 186
+					int var11 = var1.readUnsignedByte(); // L: 187
+					if (var11 == 1) { // L: 188
+						var11 = 0;
+					}
+
+					if (var2 == 0) { // L: 189
+						var8[0][var3][var4] = -var11 * 8;
+					} else {
+						var8[var2][var3][var4] = var8[var2 - 1][var3][var4] - var11 * 8; // L: 190
+					}
+					break;
+				}
+
+				if (var10 <= 49) { // L: 193
+					class83.field1034[var2][var3][var4] = (short)var1.readShort(); // L: 194
+					class83.field1035[var2][var3][var4] = (byte)((var10 - 2) / 4); // L: 195
+					class356.field3810[var2][var3][var4] = (byte)(var10 - 2 + var7 & 3); // L: 196
+				} else if (var10 <= 81) { // L: 199
+					var9[var2][var3][var4] = (byte)(var10 - 49); // L: 200
+				} else {
+					class83.field1033[var2][var3][var4] = (short)(var10 - 81); // L: 203
+				}
+			}
+		} else {
+			while (true) {
+				var10 = var1.readUnsignedShort(); // L: 208
+				if (var10 == 0) { // L: 209
+					break;
+				}
+
+				if (var10 == 1) { // L: 210
+					var1.readUnsignedByte(); // L: 211
+					break;
+				}
+
+				if (var10 <= 49) { // L: 214
+					var1.readShort(); // L: 215
+				}
+			}
+		}
+
+	} // L: 219
+
+	@ObfuscatedName("ja")
+	@ObfuscatedSignature(
+		descriptor = "(Lde;B)V",
+		garbageValue = "-9"
+	)
+	static final void method5042(class101 var0) {
+		for (Projectile var1 = (Projectile)var0.field1324.last(); var1 != null; var1 = (Projectile)var0.field1324.previous()) { // L: 5389 5390 5428
+			if (var0.field1318 == var1.plane && Client.cycle <= var1.cycleEnd) { // L: 5391
+				if (Client.cycle >= var1.cycleStart) { // L: 5392
+					class103 var2;
+					int var3;
+					Player var4;
+					if (!var1.isMoving && var1.field975 != 0) { // L: 5393
+						if (var1.field975 > 0) { // L: 5394
+							var2 = class20.field91.field1315[var1.field975 - 1]; // L: 5395
+							if (var2 != null && 0 <= var2.x && var2.x < 13312 && 0 <= var2.field1191 && var2.field1191 < 13312) { // L: 5396
+								var1.sourceX = var2.x; // L: 5397
+								var1.sourceY = var2.field1191; // L: 5398
+								var1.setDestination(var1.field968, var1.field985, var1.field970, Client.cycle); // L: 5399
+							}
+						} else {
+							var3 = -var1.field975 - 1; // L: 5404
+							if (var3 == Client.field706) { // L: 5405
+								var4 = SoundCache.localPlayer;
+							} else {
+								var4 = class20.field91.field1326[var3]; // L: 5406
+							}
+
+							if (var4 != null && 0 <= var4.x && var4.x < 13312 && 0 <= var4.field1191 && var4.field1191 < 13312) { // L: 5407
+								var1.sourceX = var4.x; // L: 5408
+								var1.sourceY = var4.field1191; // L: 5409
+								var1.setDestination(var1.field968, var1.field985, var1.field970, Client.cycle); // L: 5410
+							}
+						}
+					}
+
+					if (var1.targetIndex > 0) { // L: 5414
+						var2 = var0.field1315[var1.targetIndex - 1]; // L: 5415
+						if (var2 != null && 0 <= var2.x && var2.x < 13312 && 0 <= var2.field1191 && var2.field1191 < 13312) { // L: 5416
+							var1.setDestination(var2.x, var2.field1191, class169.method3519(var0, var2.x, var2.field1191, var1.plane) - var1.endHeight, Client.cycle);
+						}
+					}
+
+					if (var1.targetIndex < 0) { // L: 5418
+						var3 = -var1.targetIndex - 1; // L: 5420
+						if (var3 == Client.field706) { // L: 5421
+							var4 = SoundCache.localPlayer;
+						} else {
+							var4 = var0.field1326[var3]; // L: 5422
+						}
+
+						if (var4 != null && 0 <= var4.x && var4.x < 13312 && 0 <= var4.field1191 && var4.field1191 < 13312) {
+							var1.setDestination(var4.x, var4.field1191, class169.method3519(var0, var4.x, var4.field1191, var1.plane) - var1.endHeight, Client.cycle); // L: 5423
+						}
+					}
+
+					var1.advance(Client.field805); // L: 5425
+					var0.field1316.method5425(var0.field1318, (int)var1.x, (int)var1.y, (int)var1.z, 60, var1, var1.yaw, -1L, false); // L: 5426
+				}
+			} else {
+				var1.remove();
+			}
+		}
+
+	} // L: 5430
 }

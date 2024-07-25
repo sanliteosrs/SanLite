@@ -1,50 +1,45 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("em")
-public class class147 extends class128 {
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "Llh;"
-	)
-	@Export("SpotAnimationDefinition_modelArchive")
-	public static AbstractArchive SpotAnimationDefinition_modelArchive;
-	@ObfuscatedName("c")
-	@ObfuscatedGetter(
-		intValue = -1269941877
-	)
-	int field1686;
-	// $FF: synthetic field
-	@ObfuscatedSignature(
-		descriptor = "Lej;"
-	)
-	final class131 this$0;
+@ObfuscatedName("fs")
+public abstract class class147 extends Node {
+	@ObfuscatedName("al")
+	static String[] field1695;
+	@ObfuscatedName("jj")
+	static int[] field1696;
 
-	@ObfuscatedSignature(
-		descriptor = "(Lej;)V"
-	)
-	class147(class131 var1) {
-		this.this$0 = var1;
-		this.field1686 = -1; // L: 144
-	} // L: 146
+	class147() {
+	} // L: 68
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;B)V",
-		garbageValue = "5"
+		descriptor = "(Lvp;B)V",
+		garbageValue = "118"
 	)
-	void vmethod3150(Buffer var1) {
-		this.field1686 = var1.readUnsignedShort(); // L: 149
-	} // L: 150
+	abstract void vmethod3528(Buffer var1);
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Len;I)V",
-		garbageValue = "-1718344311"
+		descriptor = "(Lgk;B)V",
+		garbageValue = "3"
 	)
-	void vmethod3149(ClanSettings var1) {
-		var1.method3016(this.field1686); // L: 153
-	} // L: 154
+	abstract void vmethod3530(ClanSettings var1);
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "612733654"
+	)
+	public static int method3268(int var0) {
+		return class229.Entity_unpackID(ViewportMouse.ViewportMouse_entityTags[var0]); // L: 59
+	}
+
+	@ObfuscatedName("pz")
+	@ObfuscatedSignature(
+		descriptor = "(I)Loe;",
+		garbageValue = "-503099454"
+	)
+	static class388 method3269() {
+		return class233.field2486; // L: 13570
+	}
 }

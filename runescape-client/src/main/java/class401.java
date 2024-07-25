@@ -1,21 +1,25 @@
+import java.security.SecureRandom;
+import java.util.HashMap;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ov")
+@ObfuscatedName("pp")
 public class class401 {
-	@ObfuscatedName("j")
-	static final int[] field4442;
-	@ObfuscatedName("e")
-	static final int[] field4443;
+	@ObfuscatedName("hy")
+	static String field4618;
 
 	static {
-		field4442 = new int[16384]; // L: 8
-		field4443 = new int[16384]; // L: 9
-		double var0 = 3.834951969714103E-4D; // L: 12
+		new HashMap();
+	} // L: 9
 
-		for (int var2 = 0; var2 < 16384; ++var2) { // L: 13
-			field4442[var2] = (int)(16384.0D * Math.sin(var0 * (double)var2)); // L: 14
-			field4443[var2] = (int)(16384.0D * Math.cos((double)var2 * var0)); // L: 15
-		}
-
-	} // L: 17
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljava/security/SecureRandom;",
+		garbageValue = "2018283115"
+	)
+	static SecureRandom method7407() {
+		SecureRandom var0 = new SecureRandom(); // L: 39
+		var0.nextInt(); // L: 40
+		return var0; // L: 41
+	}
 }

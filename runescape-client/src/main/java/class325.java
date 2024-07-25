@@ -1,201 +1,180 @@
 import java.util.HashMap;
+import java.util.TimeZone;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ll")
-public class class325 {
-	@ObfuscatedName("c")
-	@Export("spriteMap")
-	final HashMap spriteMap;
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "Lns;"
-	)
-	@Export("bounds")
-	Bounds bounds;
-	@ObfuscatedName("q")
-	int[] field4075;
-	@ObfuscatedName("f")
-	int[] field4074;
-	@ObfuscatedName("j")
-	@ObfuscatedGetter(
-		intValue = 1023228515
-	)
-	int field4076;
+@nn
+@ObfuscatedName("mh")
+public final class class325 {
+	@ObfuscatedName("ag")
+	static final HashMap field3549;
 
-	public class325() {
-		this.spriteMap = new HashMap(); // L: 10
-		this.bounds = new Bounds(0, 0); // L: 11
-		this.field4075 = new int[2048]; // L: 12
-		this.field4074 = new int[2048]; // L: 13
-		this.field4076 = 0; // L: 14
-		class344.field4152 = new int[2000]; // L: 22
-		int var1 = 0; // L: 23
-		int var2 = 240; // L: 24
+	static {
+		field3549 = new HashMap(); // L: 11
+		TimeZone var0;
+		synchronized(field3549) { // L: 16
+			TimeZone var2 = (TimeZone)field3549.get("Europe/London"); // L: 17
+			if (var2 == null) { // L: 18
+				var2 = TimeZone.getTimeZone("Europe/London"); // L: 19
+				field3549.put("Europe/London", var2); // L: 20
+			}
 
-		int var4;
-		for (byte var3 = 12; var1 < 16; var2 -= var3) { // L: 25
-			var4 = StructComposition.method3616((double)((float)var2 / 360.0F), 0.9998999834060669D, (double)(0.075F + 0.425F * (float)var1 / 16.0F)); // L: 27
-			class344.field4152[var1] = var4; // L: 28
-			++var1; // L: 26
+			var0 = var2; // L: 22
 		}
 
-		var2 = 48; // L: 30
+		java.util.Calendar.getInstance(var0); // L: 25
+	} // L: 26
 
-		for (int var6 = var2 / 6; var1 < class344.field4152.length; var2 -= var6) { // L: 31 32 38
-			var4 = var1 * 2; // L: 33
-
-			for (int var5 = StructComposition.method3616((double)((float)var2 / 360.0F), 0.9998999834060669D, 0.5D); var1 < var4 && var1 < class344.field4152.length; ++var1) { // L: 34 35
-				class344.field4152[var1] = var5; // L: 36
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I[III)V",
+		garbageValue = "1967563830"
+	)
+	static void method6121(int var0, int[] var1, int var2) {
+		for (int var3 = 0; var3 < class333.field3646; ++var3) { // L: 80
+			KitDefinition var4 = PcmPlayer.KitDefinition_get(var3); // L: 81
+			if (var4 != null && !var4.nonSelectable && var4.bodypartID == (var0 == 1 ? 7 : 0) + var2) { // L: 82
+				var1[PlayerComposition.equipmentIndices[var2]] = var3 + 256; // L: 83
+				break;
 			}
 		}
 
-	} // L: 41
+	} // L: 87
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("ax")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "273043499"
+		descriptor = "(IIIII)I",
+		garbageValue = "969724405"
 	)
-	void method6033(int var1) {
-		int var2 = var1 * 2 + 1; // L: 44
-		double[] var3 = WorldMapEvent.method5119(0.0D, (double)((float)var1 / 3.0F), var1); // L: 45
-		double var4 = var3[var1] * var3[var1]; // L: 46
-		int[] var6 = new int[var2 * var2]; // L: 47
-		boolean var7 = false; // L: 48
-
-		for (int var8 = 0; var8 < var2; ++var8) { // L: 49
-			for (int var9 = 0; var9 < var2; ++var9) { // L: 50
-				int var10 = var6[var9 + var2 * var8] = (int)(256.0D * (var3[var9] * var3[var8] / var4)); // L: 51
-				if (!var7 && var10 > 0) { // L: 52
-					var7 = true; // L: 53
-				}
-			}
-		}
-
-		SpritePixels var11 = new SpritePixels(var6, var2, var2); // L: 57
-		this.spriteMap.put(var1, var11); // L: 58
-	} // L: 59
-
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(IB)Lqe;",
-		garbageValue = "0"
-	)
-	SpritePixels method6034(int var1) {
-		if (!this.spriteMap.containsKey(var1)) { // L: 62
-			this.method6033(var1); // L: 63
-		}
-
-		return (SpritePixels)this.spriteMap.get(var1); // L: 65
+	static final int method6120(int var0, int var1, int var2, int var3) {
+		int var4 = 65536 - Rasterizer3D.Rasterizer3D_cosine[var2 * 1024 / var3] >> 1; // L: 998
+		return ((65536 - var4) * var0 >> 16) + (var4 * var1 >> 16); // L: 999
 	}
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("jt")
 	@ObfuscatedSignature(
-		descriptor = "(III)V",
-		garbageValue = "-441809547"
+		descriptor = "(I)Z",
+		garbageValue = "-1088804478"
 	)
-	public final void method6048(int var1, int var2) {
-		if (this.field4076 < this.field4075.length) { // L: 69
-			this.field4075[this.field4076] = var1; // L: 70
-			this.field4074[this.field4076] = var2; // L: 71
-			++this.field4076; // L: 72
-		}
-	} // L: 73
+	static boolean method6119() {
+		return (Client.drawPlayerNames & 1) != 0; // L: 5447
+	}
 
-	@ObfuscatedName("f")
+	@ObfuscatedName("kw")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "2031798375"
+		descriptor = "(ZLug;B)V",
+		garbageValue = "1"
 	)
-	public final void method6035() {
-		this.field4076 = 0; // L: 76
-	} // L: 77
+	@Export("loadRegions")
+	static final void loadRegions(boolean var0, PacketBuffer var1) {
+		Client.isInInstance = var0; // L: 6126
+		int var3;
+		int var4;
+		int var5;
+		int var6;
+		int var7;
+		if (!Client.isInInstance) { // L: 6127
+			var1.method9700(); // L: 6131
+			int var2 = var1.method9600(); // L: 6132
+			var3 = var1.method9599(); // L: 6133
+			var4 = var1.readUnsignedShort(); // L: 6134
+			UserComparator10.field1509 = new int[var4][4]; // L: 6135
 
-	@ObfuscatedName("j")
-	@ObfuscatedSignature(
-		descriptor = "(IILqe;FI)V",
-		garbageValue = "-1870606235"
-	)
-	public final void method6046(int var1, int var2, SpritePixels var3, float var4) {
-		int var5 = (int)(18.0F * var4); // L: 80
-		SpritePixels var6 = this.method6034(var5); // L: 81
-		int var7 = var5 * 2 + 1; // L: 82
-		Bounds var8 = new Bounds(0, 0, var3.subWidth, var3.subHeight); // L: 83
-		Bounds var9 = new Bounds(0, 0); // L: 84
-		this.bounds.setHigh(var7, var7); // L: 85
-		System.nanoTime(); // L: 86
+			for (var5 = 0; var5 < var4; ++var5) { // L: 6136
+				for (var6 = 0; var6 < 4; ++var6) { // L: 6137
+					UserComparator10.field1509[var5][var6] = var1.readInt(); // L: 6138
+				}
+			}
 
-		int var10;
-		int var11;
-		int var12;
-		for (var10 = 0; var10 < this.field4076; ++var10) { // L: 87
-			var11 = this.field4075[var10]; // L: 88
-			var12 = this.field4074[var10]; // L: 89
-			int var13 = (int)(var4 * (float)(var11 - var1)) - var5; // L: 90
-			int var14 = (int)((float)var3.subHeight - (float)(var12 - var2) * var4) - var5; // L: 91
-			this.bounds.setLow(var13, var14); // L: 92
-			this.bounds.method6895(var8, var9); // L: 93
-			this.method6037(var6, var3, var9); // L: 94
-		}
+			class76.field915 = new int[var4]; // L: 6141
+			UrlRequest.field1484 = new int[var4]; // L: 6142
+			class131.field1538 = new int[var4]; // L: 6143
+			class279.field2894 = new byte[var4][]; // L: 6144
+			ModeWhere.field4638 = new byte[var4][]; // L: 6145
+			var4 = 0; // L: 6146
 
-		System.nanoTime(); // L: 96
-		System.nanoTime(); // L: 97
+			for (var5 = (var2 - 6) / 8; var5 <= (var2 + 6) / 8; ++var5) { // L: 6147
+				for (var6 = (var3 - 6) / 8; var6 <= (var3 + 6) / 8; ++var6) { // L: 6148
+					var7 = var6 + (var5 << 8); // L: 6149
+					class76.field915[var4] = var7; // L: 6150
+					UrlRequest.field1484[var4] = class157.field1756.getGroupId("m" + var5 + "_" + var6); // L: 6151
+					class131.field1538[var4] = class157.field1756.getGroupId("l" + var5 + "_" + var6); // L: 6152
+					++var4; // L: 6153
+				}
+			}
 
-		for (var10 = 0; var10 < var3.pixels.length; ++var10) { // L: 98
-			if (var3.pixels[var10] == 0) { // L: 99
-				var3.pixels[var10] = -16777216; // L: 100
-			} else {
-				var11 = (var3.pixels[var10] + 64 - 1) / 256; // L: 103
-				if (var11 <= 0) { // L: 104
-					var3.pixels[var10] = -16777216; // L: 105
-				} else {
-					if (var11 > class344.field4152.length) { // L: 108
-						var11 = class344.field4152.length;
+			ScriptEvent.method2384(var2, var3, true); // L: 6156
+		} else {
+			boolean var15 = var1.method9592() == 1; // L: 6159
+			var3 = var1.method9712(); // L: 6160
+			var4 = var1.readUnsignedShort(); // L: 6161
+			var5 = var1.readUnsignedShort(); // L: 6162
+			var1.importIndex(); // L: 6163
+
+			int var8;
+			int var9;
+			for (var6 = 0; var6 < 4; ++var6) { // L: 6164
+				for (var7 = 0; var7 < 13; ++var7) { // L: 6165
+					for (var8 = 0; var8 < 13; ++var8) { // L: 6166
+						var9 = var1.readBits(1); // L: 6167
+						if (var9 == 1) {
+							Client.field578[var6][var7][var8] = var1.readBits(26); // L: 6168
+						} else {
+							Client.field578[var6][var7][var8] = -1; // L: 6169
+						}
 					}
-
-					var12 = class344.field4152[var11 - 1]; // L: 109
-					var3.pixels[var10] = -16777216 | var12; // L: 110
 				}
 			}
-		}
 
-		System.nanoTime(); // L: 112
-	} // L: 113
+			var1.exportIndex(); // L: 6173
+			UserComparator10.field1509 = new int[var5][4]; // L: 6174
 
-	@ObfuscatedName("e")
-	@ObfuscatedSignature(
-		descriptor = "(Lqe;Lqe;Lns;I)V",
-		garbageValue = "-1668982828"
-	)
-	void method6037(SpritePixels var1, SpritePixels var2, Bounds var3) {
-		if (var3.highX != 0 && var3.highY != 0) { // L: 116
-			int var4 = 0; // L: 117
-			int var5 = 0; // L: 118
-			if (var3.lowX == 0) { // L: 119
-				var4 = var1.subWidth - var3.highX;
-			}
-
-			if (var3.lowY == 0) { // L: 120
-				var5 = var1.subHeight - var3.highY;
-			}
-
-			int var6 = var4 + var5 * var1.subWidth; // L: 121
-			int var7 = var3.lowX + var2.subWidth * var3.lowY; // L: 122
-
-			for (int var8 = 0; var8 < var3.highY; ++var8) { // L: 123
-				for (int var9 = 0; var9 < var3.highX; ++var9) { // L: 124
-					int[] var10000 = var2.pixels; // L: 125
-					int var10001 = var7++;
-					var10000[var10001] += var1.pixels[var6++];
+			for (var6 = 0; var6 < var5; ++var6) { // L: 6175
+				for (var7 = 0; var7 < 4; ++var7) { // L: 6176
+					UserComparator10.field1509[var6][var7] = var1.readInt(); // L: 6177
 				}
-
-				var6 += var1.subWidth - var3.highX; // L: 127
-				var7 += var2.subWidth - var3.highX; // L: 128
 			}
 
+			class76.field915 = new int[var5]; // L: 6180
+			UrlRequest.field1484 = new int[var5]; // L: 6181
+			class131.field1538 = new int[var5]; // L: 6182
+			class279.field2894 = new byte[var5][]; // L: 6183
+			ModeWhere.field4638 = new byte[var5][]; // L: 6184
+			var5 = 0; // L: 6185
+
+			for (var6 = 0; var6 < 4; ++var6) { // L: 6186
+				for (var7 = 0; var7 < 13; ++var7) { // L: 6187
+					for (var8 = 0; var8 < 13; ++var8) { // L: 6188
+						var9 = Client.field578[var6][var7][var8]; // L: 6189
+						if (var9 != -1) { // L: 6190
+							int var10 = var9 >> 14 & 1023; // L: 6191
+							int var11 = var9 >> 3 & 2047; // L: 6192
+							int var12 = (var10 / 8 << 8) + var11 / 8; // L: 6193
+
+							int var13;
+							for (var13 = 0; var13 < var5; ++var13) { // L: 6194
+								if (class76.field915[var13] == var12) {
+									var12 = -1; // L: 6195
+									break; // L: 6196
+								}
+							}
+
+							if (var12 != -1) { // L: 6198
+								class76.field915[var5] = var12; // L: 6199
+								var13 = var12 >> 8 & 255; // L: 6200
+								int var14 = var12 & 255; // L: 6201
+								UrlRequest.field1484[var5] = class157.field1756.getGroupId("m" + var13 + "_" + var14); // L: 6202
+								class131.field1538[var5] = class157.field1756.getGroupId("l" + var13 + "_" + var14); // L: 6203
+								++var5; // L: 6204
+							}
+						}
+					}
+				}
+			}
+
+			ScriptEvent.method2384(var4, var3, !var15); // L: 6210
 		}
-	} // L: 130
+
+	} // L: 6212
 }
