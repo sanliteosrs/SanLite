@@ -1,108 +1,97 @@
+import java.net.MalformedURLException;
+import java.net.URL;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("mc")
+@ObfuscatedName("nf")
 public class class353 {
-	@ObfuscatedName("ay")
-	@Export("client")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Lclient;"
+		descriptor = "Lez;"
 	)
-	static Client client;
-
-	@ObfuscatedName("v")
+	UrlRequest field3761;
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "([Ljava/lang/String;[II)V",
-		garbageValue = "-221200866"
+		descriptor = "Lvg;"
 	)
-	public static void method6507(String[] var0, int[] var1) {
-		method6505(var0, var1, 0, var0.length - 1); // L: 39
-	} // L: 40
+	SpritePixels field3759;
 
-	@ObfuscatedName("q")
 	@ObfuscatedSignature(
-		descriptor = "([Ljava/lang/String;[IIIB)V",
-		garbageValue = "81"
+		descriptor = "(Ljava/lang/String;Lea;)V"
 	)
-	static void method6505(String[] var0, int[] var1, int var2, int var3) {
-		if (var2 < var3) { // L: 43
-			int var4 = (var3 + var2) / 2; // L: 44
-			int var5 = var2; // L: 45
-			String var6 = var0[var4]; // L: 46
-			var0[var4] = var0[var3]; // L: 47
-			var0[var3] = var6; // L: 48
-			int var7 = var1[var4]; // L: 49
-			var1[var4] = var1[var3]; // L: 50
-			var1[var3] = var7; // L: 51
-
-			for (int var8 = var2; var8 < var3; ++var8) { // L: 52
-				if (var6 == null || var0[var8] != null && var0[var8].compareTo(var6) < (var8 & 1)) { // L: 53
-					String var9 = var0[var8]; // L: 54
-					var0[var8] = var0[var5]; // L: 55
-					var0[var5] = var9; // L: 56
-					int var10 = var1[var8]; // L: 57
-					var1[var8] = var1[var5]; // L: 58
-					var1[var5++] = var10; // L: 59
-				}
-			}
-
-			var0[var3] = var0[var5]; // L: 63
-			var0[var5] = var6; // L: 64
-			var1[var3] = var1[var5]; // L: 65
-			var1[var5] = var7; // L: 66
-			method6505(var0, var1, var2, var5 - 1); // L: 67
-			method6505(var0, var1, var5 + 1, var3); // L: 68
+	class353(String var1, UrlRequester var2) {
+		try {
+			this.field3761 = var2.request(new URL(var1)); // L: 16
+		} catch (MalformedURLException var4) { // L: 18
+			this.field3761 = null; // L: 19
 		}
 
-	} // L: 70
+	} // L: 21
 
-	@ObfuscatedName("b")
 	@ObfuscatedSignature(
-		descriptor = "(ILbi;ZI)I",
-		garbageValue = "-2096074968"
+		descriptor = "(Lez;)V"
 	)
-	static int method6506(int var0, Script var1, boolean var2) {
-		Widget var3;
-		if (var0 == ScriptOpcodes.IF_GETINVOBJECT) { // L: 1420
-			var3 = class140.getWidget(Interpreter.Interpreter_intStack[--class446.Interpreter_intStackSize]); // L: 1421
-			Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = var3.itemId; // L: 1422
-			return 1; // L: 1423
-		} else if (var0 == ScriptOpcodes.IF_GETINVCOUNT) { // L: 1425
-			var3 = class140.getWidget(Interpreter.Interpreter_intStack[--class446.Interpreter_intStackSize]); // L: 1426
-			if (var3.itemId != -1) { // L: 1427
-				Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = var3.itemQuantity;
-			} else {
-				Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = 0; // L: 1428
+	class353(UrlRequest var1) {
+		this.field3761 = var1; // L: 24
+	} // L: 25
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lvg;",
+		garbageValue = "1502176099"
+	)
+	SpritePixels method6530() {
+		if (this.field3759 == null && this.field3761 != null && this.field3761.isDone()) { // L: 28
+			if (this.field3761.getResponse() != null) { // L: 29
+				this.field3759 = class199.method3813(this.field3761.getResponse()); // L: 30
 			}
 
-			return 1; // L: 1429
-		} else if (var0 == ScriptOpcodes.IF_HASSUB) { // L: 1431
-			int var5 = Interpreter.Interpreter_intStack[--class446.Interpreter_intStackSize]; // L: 1432
-			InterfaceParent var4 = (InterfaceParent)Client.interfaceParents.get((long)var5); // L: 1433
-			if (var4 != null) { // L: 1434
-				Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = 1;
-			} else {
-				Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = 0; // L: 1435
-			}
+			this.field3761 = null; // L: 32
+		}
 
-			return 1; // L: 1436
-		} else if (var0 == ScriptOpcodes.IF_GETTOP) { // L: 1438
-			Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = Client.rootInterface; // L: 1439
-			return 1; // L: 1440
-		} else if (var0 == 2707) { // L: 1442
-			var3 = class140.getWidget(Interpreter.Interpreter_intStack[--class446.Interpreter_intStackSize]); // L: 1443
-			Interpreter.Interpreter_intStack[++class446.Interpreter_intStackSize - 1] = var3.method5680() ? 1 : 0; // L: 1444
-			return 1; // L: 1445
-		} else if (var0 == 2708) { // L: 1447
-			var3 = class140.getWidget(Interpreter.Interpreter_intStack[--class446.Interpreter_intStackSize]); // L: 1448
-			return class29.method363(var3); // L: 1449
-		} else if (var0 == 2709) { // L: 1451
-			var3 = class140.getWidget(Interpreter.Interpreter_intStack[--class446.Interpreter_intStackSize]); // L: 1452
-			return WorldMapSection0.method4947(var3); // L: 1453
+		return this.field3759; // L: 34
+	}
+
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lii;",
+		garbageValue = "1660068805"
+	)
+	@Export("SequenceDefinition_get")
+	public static SequenceDefinition SequenceDefinition_get(int var0) {
+		SequenceDefinition var1 = (SequenceDefinition)SequenceDefinition.SequenceDefinition_cached.get((long)var0); // L: 57
+		if (var1 != null) { // L: 58
+			return var1; // L: 59
 		} else {
-			return 2; // L: 1455
+			byte[] var2 = AbstractSocket.SequenceDefinition_archive.takeFile(12, var0); // L: 61
+			var1 = new SequenceDefinition(); // L: 62
+			if (var2 != null) { // L: 63
+				var1.decode(new Buffer(var2)); // L: 64
+			}
+
+			var1.postDecode(); // L: 66
+			SequenceDefinition.SequenceDefinition_cached.put(var1, (long)var0); // L: 67
+			return var1; // L: 68
 		}
+	}
+
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(IIIB)I",
+		garbageValue = "-13"
+	)
+	static final int method6535(int var0, int var1, int var2) {
+		int var3 = var0 / var2; // L: 984
+		int var4 = var0 & var2 - 1; // L: 985
+		int var5 = var1 / var2; // L: 986
+		int var6 = var1 & var2 - 1; // L: 987
+		int var7 = Login.method2201(var3, var5); // L: 988
+		int var8 = Login.method2201(var3 + 1, var5); // L: 989
+		int var9 = Login.method2201(var3, var5 + 1); // L: 990
+		int var10 = Login.method2201(var3 + 1, var5 + 1); // L: 991
+		int var11 = class325.method6120(var7, var8, var4, var2); // L: 992
+		int var12 = class325.method6120(var9, var10, var4, var2); // L: 993
+		return class325.method6120(var11, var12, var6, var2); // L: 994
 	}
 }

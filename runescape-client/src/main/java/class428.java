@@ -1,19 +1,26 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pf")
-public interface class428 {
-	@ObfuscatedName("c")
+@ObfuscatedName("qn")
+public final class class428 {
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;Lqt;B)V",
-		garbageValue = "-51"
+		descriptor = "[Lvv;"
 	)
-	void vmethod7583(Object var1, Buffer var2);
+	@Export("title_muteSprite")
+	static IndexedSprite[] title_muteSprite;
+	@ObfuscatedName("aq")
+	final Object field4730;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = 1305925345
+	)
+	int field4727;
 
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(Lqt;I)Ljava/lang/Object;",
-		garbageValue = "-261873850"
-	)
-	Object vmethod7580(Buffer var1);
+	class428(Object var1, int var2) {
+		this.field4730 = var1; // L: 170
+		this.field4727 = var2; // L: 171
+	} // L: 172
 }
