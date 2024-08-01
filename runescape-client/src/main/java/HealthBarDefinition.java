@@ -4,213 +4,199 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fe")
+@ObfuscatedName("hy")
 @Implements("HealthBarDefinition")
 public class HealthBarDefinition extends DualNode {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Llh;"
+		descriptor = "Lok;"
 	)
 	@Export("HealthBarDefinition_archive")
 	public static AbstractArchive HealthBarDefinition_archive;
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "Llh;"
+		descriptor = "Lok;"
 	)
-	public static AbstractArchive field1877;
-	@ObfuscatedName("q")
+	public static AbstractArchive field1929;
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lii;"
+		descriptor = "Lmo;"
 	)
-	@Export("HealthBarDefinition_cached")
-	static EvictingDualNodeHashTable HealthBarDefinition_cached;
-	@ObfuscatedName("f")
+	@Export("NpcDefinition_cachedModels")
+	public static EvictingDualNodeHashTable NpcDefinition_cachedModels;
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lii;"
+		descriptor = "Lmo;"
 	)
-	@Export("HealthBarDefinition_cachedSprites")
-	static EvictingDualNodeHashTable HealthBarDefinition_cachedSprites;
-	@ObfuscatedName("br")
-	@ObfuscatedSignature(
-		descriptor = "Lpe;"
-	)
-	@Export("loginType")
-	static LoginType loginType;
-	@ObfuscatedName("fp")
+	public static EvictingDualNodeHashTable field1931;
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 693787955
+		intValue = 2084950425
 	)
-	static int field1888;
-	@ObfuscatedName("j")
+	public int field1941;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 1094973945
-	)
-	public int field1876;
-	@ObfuscatedName("w")
-	@ObfuscatedGetter(
-		intValue = -2143269191
+		intValue = -134381729
 	)
 	@Export("int1")
 	public int int1;
-	@ObfuscatedName("y")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -131797823
+		intValue = -559303949
 	)
 	@Export("int2")
 	public int int2;
-	@ObfuscatedName("i")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 546193187
+		intValue = 624950315
 	)
 	@Export("int3")
 	public int int3;
-	@ObfuscatedName("s")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 701454719
+		intValue = 1729883099
 	)
-	public int field1881;
-	@ObfuscatedName("t")
+	public int field1936;
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 1633864587
+		intValue = 945531
 	)
 	@Export("int5")
 	public int int5;
-	@ObfuscatedName("z")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -1383515023
+		intValue = -1320982237
 	)
 	@Export("frontSpriteID")
 	int frontSpriteID;
-	@ObfuscatedName("r")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 534190147
+		intValue = 463739565
 	)
 	@Export("backSpriteID")
 	int backSpriteID;
-	@ObfuscatedName("u")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = 1354984089
+		intValue = 1492678773
 	)
 	@Export("width")
 	public int width;
-	@ObfuscatedName("k")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = -548301543
+		intValue = -83055385
 	)
 	@Export("widthPadding")
 	public int widthPadding;
 
 	static {
-		HealthBarDefinition_cached = new EvictingDualNodeHashTable(64); // L: 14
-		HealthBarDefinition_cachedSprites = new EvictingDualNodeHashTable(64); // L: 15
+		NpcDefinition_cachedModels = new EvictingDualNodeHashTable(64); // L: 14
+		field1931 = new EvictingDualNodeHashTable(64); // L: 15
 	}
 
-	HealthBarDefinition() {
+	public HealthBarDefinition() {
 		this.int1 = 255; // L: 19
 		this.int2 = 255; // L: 20
 		this.int3 = -1; // L: 21
-		this.field1881 = 1; // L: 22
+		this.field1936 = 1; // L: 22
 		this.int5 = 70; // L: 23
 		this.frontSpriteID = -1; // L: 24
 		this.backSpriteID = -1; // L: 25
 		this.width = 30; // L: 26
 		this.widthPadding = 0; // L: 27
-	} // L: 29
+	}
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;I)V",
-		garbageValue = "2126050734"
+		descriptor = "(Lvp;I)V",
+		garbageValue = "1933973926"
 	)
 	@Export("decode")
-	void decode(Buffer var1) {
+	public void decode(Buffer var1) {
 		while (true) {
-			int var2 = var1.readUnsignedByte(); // L: 43
-			if (var2 == 0) { // L: 44
-				return; // L: 47
+			int var2 = var1.readUnsignedByte(); // L: 31
+			if (var2 == 0) { // L: 32
+				return; // L: 35
 			}
 
-			this.decodeNext(var1, var2); // L: 45
+			this.decodeNext(var1, var2); // L: 33
 		}
 	}
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;II)V",
-		garbageValue = "442152840"
+		descriptor = "(Lvp;IB)V",
+		garbageValue = "35"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
-		if (var2 == 1) { // L: 50
-			var1.readUnsignedShort(); // L: 51
-		} else if (var2 == 2) { // L: 53
+		if (var2 == 1) { // L: 38
+			var1.readUnsignedShort(); // L: 39
+		} else if (var2 == 2) { // L: 41
 			this.int1 = var1.readUnsignedByte();
-		} else if (var2 == 3) { // L: 54
+		} else if (var2 == 3) { // L: 42
 			this.int2 = var1.readUnsignedByte();
-		} else if (var2 == 4) { // L: 55
+		} else if (var2 == 4) { // L: 43
 			this.int3 = 0;
-		} else if (var2 == 5) { // L: 56
+		} else if (var2 == 5) { // L: 44
 			this.int5 = var1.readUnsignedShort();
-		} else if (var2 == 6) { // L: 57
-			var1.readUnsignedByte(); // L: 58
-		} else if (var2 == 7) { // L: 60
-			this.frontSpriteID = var1.method7752();
-		} else if (var2 == 8) { // L: 61
-			this.backSpriteID = var1.method7752();
-		} else if (var2 == 11) { // L: 62
+		} else if (var2 == 6) { // L: 45
+			var1.readUnsignedByte(); // L: 46
+		} else if (var2 == 7) { // L: 48
+			this.frontSpriteID = var1.method9602();
+		} else if (var2 == 8) { // L: 49
+			this.backSpriteID = var1.method9602();
+		} else if (var2 == 11) { // L: 50
 			this.int3 = var1.readUnsignedShort();
-		} else if (var2 == 14) { // L: 63
+		} else if (var2 == 14) { // L: 51
 			this.width = var1.readUnsignedByte();
-		} else if (var2 == 15) { // L: 64
+		} else if (var2 == 15) { // L: 52
 			this.widthPadding = var1.readUnsignedByte();
 		}
 
-	} // L: 66
+	} // L: 54
 
-	@ObfuscatedName("f")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lqe;",
-		garbageValue = "-83"
+		descriptor = "(I)Lvg;",
+		garbageValue = "-819667087"
 	)
-	@Export("getFrontSprite")
-	public SpritePixels getFrontSprite() {
-		if (this.frontSpriteID < 0) { // L: 69
+	public SpritePixels method3652() {
+		if (this.frontSpriteID < 0) { // L: 57
 			return null;
 		} else {
-			SpritePixels var1 = (SpritePixels)HealthBarDefinition_cachedSprites.get((long)this.frontSpriteID); // L: 70
+			SpritePixels var1 = (SpritePixels)field1931.get((long)this.frontSpriteID); // L: 58
 			if (var1 != null) {
-				return var1; // L: 71
+				return var1; // L: 59
 			} else {
-				var1 = class7.SpriteBuffer_getSprite(field1877, this.frontSpriteID, 0); // L: 72
-				if (var1 != null) { // L: 73
-					HealthBarDefinition_cachedSprites.put(var1, (long)this.frontSpriteID);
+				var1 = ArchiveDiskActionHandler.SpriteBuffer_getSprite(field1929, this.frontSpriteID, 0); // L: 60
+				if (var1 != null) {
+					field1931.put(var1, (long)this.frontSpriteID); // L: 61
 				}
 
-				return var1; // L: 75
+				return var1; // L: 63
 			}
 		}
 	}
 
-	@ObfuscatedName("j")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lqe;",
-		garbageValue = "-1408497685"
+		descriptor = "(B)Lvg;",
+		garbageValue = "72"
 	)
-	@Export("getBackSprite")
-	public SpritePixels getBackSprite() {
-		if (this.backSpriteID < 0) { // L: 79
+	public SpritePixels method3653() {
+		if (this.backSpriteID < 0) { // L: 67
 			return null;
 		} else {
-			SpritePixels var1 = (SpritePixels)HealthBarDefinition_cachedSprites.get((long)this.backSpriteID); // L: 80
+			SpritePixels var1 = (SpritePixels)field1931.get((long)this.backSpriteID); // L: 68
 			if (var1 != null) {
-				return var1; // L: 81
+				return var1; // L: 69
 			} else {
-				var1 = class7.SpriteBuffer_getSprite(field1877, this.backSpriteID, 0); // L: 82
-				if (var1 != null) {
-					HealthBarDefinition_cachedSprites.put(var1, (long)this.backSpriteID); // L: 83
+				var1 = ArchiveDiskActionHandler.SpriteBuffer_getSprite(field1929, this.backSpriteID, 0); // L: 70
+				if (var1 != null) { // L: 71
+					field1931.put(var1, (long)this.backSpriteID);
 				}
 
-				return var1; // L: 85
+				return var1; // L: 73
 			}
 		}
 	}

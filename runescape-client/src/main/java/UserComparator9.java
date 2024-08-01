@@ -1,12 +1,24 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dv")
+@ObfuscatedName("ep")
 @Implements("UserComparator9")
 public class UserComparator9 extends AbstractUserComparator {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lvv;"
+	)
+	static IndexedSprite field1506;
+	@ObfuscatedName("ns")
+	@ObfuscatedGetter(
+		intValue = -1236472029
+	)
+	@Export("menuY")
+	static int menuY;
+	@ObfuscatedName("aq")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -14,30 +26,39 @@ public class UserComparator9 extends AbstractUserComparator {
 		this.reversed = var1; // L: 11
 	} // L: 12
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lnm;Lnm;I)I",
-		garbageValue = "-582515893"
+		descriptor = "(Lsh;Lsh;I)I",
+		garbageValue = "1637037113"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
 		if (Client.worldId == var1.world && var2.world == Client.worldId) { // L: 15
 			return this.reversed ? var1.getUsername().compareToTyped(var2.getUsername()) : var2.getUsername().compareToTyped(var1.getUsername()); // L: 16
 		} else {
-			return this.compareUser(var1, var2); // L: 18
+			return this.compareUser(var1, var2);
 		}
 	}
 
 	public int compare(Object var1, Object var2) {
-		return this.compareBuddy((Buddy)var1, (Buddy)var2); // L: 22
+		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("f")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(B)[Ldt;",
-		garbageValue = "6"
+		descriptor = "(DDII)[D",
+		garbageValue = "-1504286701"
 	)
-	static class119[] method2599() {
-		return new class119[]{class119.field1497, class119.field1504, class119.field1505, class119.field1501, class119.field1492, class119.field1493, class119.field1494, class119.field1495, class119.field1496, class119.field1489, class119.field1498, class119.field1499, class119.field1500, class119.field1502, class119.field1488, class119.field1503, class119.field1491}; // L: 74
+	public static double[] method3018(double var0, double var2, int var4) {
+		int var5 = var4 * 2 + 1; // L: 17
+		double[] var6 = new double[var5]; // L: 18
+		int var7 = -var4;
+
+		for (int var8 = 0; var7 <= var4; ++var8) {
+			var6[var8] = WorldMapArea.method4698((double)var7, var0, var2); // L: 20
+			++var7; // L: 19
+		}
+
+		return var6; // L: 22
 	}
 }
