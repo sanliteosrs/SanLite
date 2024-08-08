@@ -1,62 +1,76 @@
+import java.util.Date;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ef")
-public class class152 extends class128 {
-	@ObfuscatedName("c")
+@ObfuscatedName("fo")
+public class class152 extends class147 {
+	@ObfuscatedName("dv")
+	static boolean field1724;
+	@ObfuscatedName("aq")
 	@ObfuscatedGetter(
-		intValue = 557898497
+		intValue = 243421889
 	)
-	int field1715;
-	@ObfuscatedName("v")
+	int field1721;
+	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		longValue = -6189068569361167089L
+		intValue = -1954655977
 	)
-	long field1716;
+	int field1718;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = 919033843
+	)
+	int field1719;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = 814487451
+	)
+	int field1717;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lej;"
+		descriptor = "Lfn;"
 	)
-	final class131 this$0;
+	final class150 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lej;)V"
+		descriptor = "(Lfn;)V"
 	)
-	class152(class131 var1) {
-		this.this$0 = var1; // L: 307
+	class152(class150 var1) {
+		this.this$0 = var1; // L: 289
 	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;B)V",
-		garbageValue = "5"
+		descriptor = "(Lvp;B)V",
+		garbageValue = "118"
 	)
-	void vmethod3150(Buffer var1) {
-		this.field1715 = var1.readInt(); // L: 310
-		this.field1716 = var1.readLong(); // L: 311
-	} // L: 312
+	void vmethod3528(Buffer var1) {
+		this.field1721 = var1.readInt(); // L: 292
+		this.field1717 = var1.readInt(); // L: 293
+		this.field1718 = var1.readUnsignedByte(); // L: 294
+		this.field1719 = var1.readUnsignedByte(); // L: 295
+	} // L: 296
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Len;I)V",
-		garbageValue = "-1718344311"
+		descriptor = "(Lgk;B)V",
+		garbageValue = "3"
 	)
-	void vmethod3149(ClanSettings var1) {
-		var1.method2967(this.field1715, this.field1716); // L: 315
-	} // L: 316
+	void vmethod3530(ClanSettings var1) {
+		var1.method3365(this.field1721, this.field1717, this.field1718, this.field1719); // L: 299
+	} // L: 300
 
-	@ObfuscatedName("c")
-	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "2011587938"
-	)
-	static int method3147(int var0, int var1) {
-		ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.get((long)var0); // L: 14
-		if (var2 == null) { // L: 15
-			return -1;
-		} else {
-			return var1 >= 0 && var1 < var2.ids.length ? var2.ids[var1] : -1; // L: 16 17
-		}
+	@ObfuscatedName("aq")
+	public static String method3299(long var0) {
+		Calendar.Calendar_calendar.setTime(new Date(var0)); // L: 31
+		int var2 = Calendar.Calendar_calendar.get(7); // L: 32
+		int var3 = Calendar.Calendar_calendar.get(5); // L: 33
+		int var4 = Calendar.Calendar_calendar.get(2); // L: 34
+		int var5 = Calendar.Calendar_calendar.get(1); // L: 35
+		int var6 = Calendar.Calendar_calendar.get(11); // L: 36
+		int var7 = Calendar.Calendar_calendar.get(12); // L: 37
+		int var8 = Calendar.Calendar_calendar.get(13); // L: 38
+		return Calendar.DAYS_OF_THE_WEEK[var2 - 1] + ", " + var3 / 10 + var3 % 10 + "-" + Calendar.MONTH_NAMES_ENGLISH_GERMAN[0][var4] + "-" + var5 + " " + var6 / 10 + var6 % 10 + ":" + var7 / 10 + var7 % 10 + ":" + var8 / 10 + var8 % 10 + " GMT"; // L: 39
 	}
 }

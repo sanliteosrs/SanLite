@@ -3,63 +3,82 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ek")
-public class class143 extends class128 {
-	@ObfuscatedName("ur")
+@ObfuscatedName("fr")
+public enum class143 implements class400 {
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Lls;"
+		descriptor = "Lfr;"
 	)
-	@Export("grandExchangeEvents")
-	static GrandExchangeEvents grandExchangeEvents;
-	@ObfuscatedName("c")
+	field1663(0, 0),
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1666(1, 1),
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1662(2, 2),
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1667(3, 3),
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1671(4, 4),
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1670(5, 5),
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1668(6, 6),
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1664(7, 7),
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Lfr;"
+	)
+	field1669(8, 8);
+
+	@ObfuscatedName("qo")
 	@ObfuscatedGetter(
-		longValue = -4142648210474393183L
+		intValue = 1820594211
 	)
-	long field1668;
-	@ObfuscatedName("v")
-	String field1667;
-	@ObfuscatedName("q")
+	static int field1673;
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 81354487
+		intValue = 273837669
 	)
-	int field1669;
-	// $FF: synthetic field
-	@ObfuscatedSignature(
-		descriptor = "Lej;"
+	final int field1665;
+	@ObfuscatedName("ae")
+	@ObfuscatedGetter(
+		intValue = -1831211699
 	)
-	final class131 this$0;
+	final int field1672;
 
-	@ObfuscatedSignature(
-		descriptor = "(Lej;)V"
-	)
-	class143(class131 var1) {
-		this.this$0 = var1;
-		this.field1668 = -1L; // L: 93
-		this.field1667 = null; // L: 94
-		this.field1669 = 0; // L: 95
-	} // L: 97
+	class143(int var3, int var4) {
+		this.field1665 = var3; // L: 113
+		this.field1672 = var4; // L: 114
+	} // L: 115
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;B)V",
-		garbageValue = "5"
+		descriptor = "(I)I",
+		garbageValue = "2071992588"
 	)
-	void vmethod3150(Buffer var1) {
-		if (var1.readUnsignedByte() != 255) { // L: 100
-			--var1.offset; // L: 101
-			this.field1668 = var1.readLong(); // L: 102
-		}
-
-		this.field1667 = var1.readStringCp1252NullTerminatedOrNull(); // L: 104
-		this.field1669 = var1.readUnsignedShort(); // L: 105
-	} // L: 106
-
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "(Len;I)V",
-		garbageValue = "-1718344311"
-	)
-	void vmethod3149(ClanSettings var1) {
-		var1.method2956(this.field1668, this.field1667, this.field1669); // L: 109
-	} // L: 110
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1672; // L: 118
+	}
 }

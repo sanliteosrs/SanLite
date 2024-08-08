@@ -1,110 +1,68 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.Iterator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("px")
-public class class437 extends DualNode {
-	@ObfuscatedName("c")
+@ObfuscatedName("qd")
+public class class437 extends class444 {
 	@ObfuscatedSignature(
-		descriptor = "Llh;"
+		descriptor = "(Lro;)V"
 	)
-	static AbstractArchive field4675;
-	@ObfuscatedName("v")
-	@ObfuscatedSignature(
-		descriptor = "Lii;"
-	)
-	@Export("DBRowType_cache")
-	static EvictingDualNodeHashTable DBRowType_cache;
-	@ObfuscatedName("q")
-	Object[][] field4676;
-	@ObfuscatedName("f")
-	int[][] field4677;
-	@ObfuscatedName("j")
-	@ObfuscatedGetter(
-		intValue = 1231945791
-	)
-	public int field4678;
+	public class437(class444 var1) {
+		super(var1); // L: 9
+		super.field4814 = "AddRequestTask"; // L: 10
+	} // L: 11
 
-	static {
-		DBRowType_cache = new EvictingDualNodeHashTable(64); // L: 11
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(S)Z",
+		garbageValue = "-4307"
+	)
+	public boolean vmethod8276() {
+		while (!class330.field3587.isEmpty()) { // L: 15
+			class342 var1 = (class342)class330.field3587.peek(); // L: 16
+			if (var1 == null) { // L: 17
+				class330.field3587.pop(); // L: 18
+			} else {
+				var1.field3713 = this.method8224(); // L: 21
+				class330.field3584.add(var1); // L: 22
+				class330.field3587.pop(); // L: 23
+			}
+		}
+
+		return true; // L: 25
 	}
 
-	class437() {
-	} // L: 17
-
-	@ObfuscatedName("q")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;B)V",
-		garbageValue = "1"
+		descriptor = "(B)Lmc;",
+		garbageValue = "2"
 	)
-	void method7635(Buffer var1) {
+	MidiPcmStream method8224() {
+		MidiPcmStream var1 = null; // L: 29
+		Iterator var2 = class330.field3582.iterator(); // L: 30
+
 		while (true) {
-			int var2 = var1.readUnsignedByte(); // L: 36
-			if (var2 == 0) { // L: 37
-				return; // L: 40
-			}
+			MidiPcmStream var3;
+			do {
+				do {
+					if (!var2.hasNext()) {
+						if (var1 != null) { // L: 38
+							++var1.field3627; // L: 39
+							if (var1.method6187() == 0 && var1.isReady()) { // L: 40
+								var1.clear(); // L: 41
+								var1.method6190(); // L: 42
+								var1.setPcmStreamVolume(0); // L: 43
+							}
+						}
 
-			this.method7627(var1, var2); // L: 38
-		}
-	}
-
-	@ObfuscatedName("f")
-	@ObfuscatedSignature(
-		descriptor = "(IB)[Ljava/lang/Object;",
-		garbageValue = "-23"
-	)
-	public Object[] method7625(int var1) {
-		return this.field4676 == null ? null : this.field4676[var1]; // L: 43 44
-	}
-
-	@ObfuscatedName("j")
-	@ObfuscatedSignature(
-		descriptor = "(Lqt;II)V",
-		garbageValue = "-1966368366"
-	)
-	void method7627(Buffer var1, int var2) {
-		if (var2 == 3) { // L: 48
-			int var3 = var1.readUnsignedByte(); // L: 49
-			if (this.field4676 == null) { // L: 50
-				this.field4676 = new Object[var3][]; // L: 51
-				this.field4677 = new int[var3][]; // L: 52
-			}
-
-			for (int var4 = var1.readUnsignedByte(); var4 != 255; var4 = var1.readUnsignedByte()) { // L: 54 55 78
-				int var5 = var1.readUnsignedByte(); // L: 56
-				int[] var6 = new int[var5]; // L: 57
-
-				for (int var7 = 0; var7 < var5; ++var7) { // L: 58
-					var6[var7] = var1.readUShortSmart(); // L: 59
-				}
-
-				Object[][] var16 = this.field4676; // L: 61
-				int var10 = var1.readUShortSmart(); // L: 65
-				Object[] var11 = new Object[var6.length * var10]; // L: 66
-
-				for (int var12 = 0; var12 < var10; ++var12) { // L: 67
-					for (int var13 = 0; var13 < var6.length; ++var13) { // L: 68
-						int var14 = var13 + var6.length * var12; // L: 69
-						class432 var15 = MusicPatchNode.method5472(var6[var13]); // L: 70
-						var11[var14] = var15.method7565(var1); // L: 71
+						return var1; // L: 46
 					}
-				}
 
-				var16[var4] = var11; // L: 76
-				this.field4677[var4] = var6; // L: 77
-			}
-		} else if (var2 == 4) { // L: 81
-			this.field4678 = var1.method7754(); // L: 82
+					var3 = (MidiPcmStream)var2.next(); // L: 31
+				} while(var3 == null); // L: 33
+			} while(var1 != null && var1.field3627 <= var3.field3627 && (var3.method6187() != 0 || !var3.isReady()));
+
+			var1 = var3; // L: 34
 		}
-
-	} // L: 85
-
-	@ObfuscatedName("e")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-110987764"
-	)
-	void method7636() {
-	} // L: 87
+	}
 }

@@ -1,58 +1,55 @@
+import java.lang.management.GarbageCollectorMXBean;
+import java.lang.management.ManagementFactory;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fs")
+@ObfuscatedName("hw")
 @Implements("EnumComposition")
 public class EnumComposition extends DualNode {
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Llh;"
+		descriptor = "Lok;"
 	)
 	@Export("EnumDefinition_archive")
-	static AbstractArchive EnumDefinition_archive;
-	@ObfuscatedName("v")
+	public static AbstractArchive EnumDefinition_archive;
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "Lii;"
+		descriptor = "Lmo;"
 	)
 	@Export("EnumDefinition_cached")
-	static EvictingDualNodeHashTable EnumDefinition_cached;
-	@ObfuscatedName("nc")
-	@ObfuscatedGetter(
-		intValue = -2102626567
-	)
-	@Export("selectedItemSlot")
-	static int selectedItemSlot;
-	@ObfuscatedName("q")
+	public static EvictingDualNodeHashTable EnumDefinition_cached;
+	@ObfuscatedName("ag")
 	@Export("inputType")
 	public char inputType;
-	@ObfuscatedName("f")
+	@ObfuscatedName("ak")
 	@Export("outputType")
 	public char outputType;
-	@ObfuscatedName("j")
+	@ObfuscatedName("ap")
 	@Export("defaultStr")
 	public String defaultStr;
-	@ObfuscatedName("e")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = -735765161
+		intValue = -1142953375
 	)
 	@Export("defaultInt")
 	public int defaultInt;
-	@ObfuscatedName("g")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 367199611
+		intValue = 1660847733
 	)
 	@Export("outputCount")
 	public int outputCount;
-	@ObfuscatedName("w")
+	@ObfuscatedName("av")
 	@Export("keys")
 	public int[] keys;
-	@ObfuscatedName("y")
+	@ObfuscatedName("ab")
 	@Export("intVals")
 	public int[] intVals;
-	@ObfuscatedName("i")
+	@ObfuscatedName("ai")
 	@Export("strVals")
 	public String[] strVals;
 
@@ -61,179 +58,147 @@ public class EnumComposition extends DualNode {
 	}
 
 	EnumComposition() {
-		this.defaultStr = "null"; // L: 15
+		this.defaultStr = "null";
 		this.outputCount = 0; // L: 17
 	} // L: 22
 
-	@ObfuscatedName("q")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;B)V",
-		garbageValue = "110"
+		descriptor = "(Lvp;I)V",
+		garbageValue = "-369750776"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
 		while (true) {
-			int var2 = var1.readUnsignedByte();
-			if (var2 == 0) {
-				return; // L: 44
+			int var2 = var1.readUnsignedByte(); // L: 36
+			if (var2 == 0) { // L: 37
+				return; // L: 40
 			}
 
-			this.decodeNext(var1, var2); // L: 42
+			this.decodeNext(var1, var2); // L: 38
 		}
 	}
 
-	@ObfuscatedName("f")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;II)V",
-		garbageValue = "-1048481170"
+		descriptor = "(Lvp;II)V",
+		garbageValue = "722630389"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
-		if (var2 == 1) { // L: 47
+		if (var2 == 1) { // L: 43
 			this.inputType = (char)var1.readUnsignedByte();
-		} else if (var2 == 2) { // L: 48
+		} else if (var2 == 2) { // L: 44
 			this.outputType = (char)var1.readUnsignedByte();
-		} else if (var2 == 3) { // L: 49
+		} else if (var2 == 3) { // L: 45
 			this.defaultStr = var1.readStringCp1252NullTerminated();
-		} else if (var2 == 4) { // L: 50
+		} else if (var2 == 4) { // L: 46
 			this.defaultInt = var1.readInt();
 		} else {
 			int var3;
-			if (var2 == 5) { // L: 51
-				this.outputCount = var1.readUnsignedShort(); // L: 52
-				this.keys = new int[this.outputCount]; // L: 53
-				this.strVals = new String[this.outputCount]; // L: 54
+			if (var2 == 5) { // L: 47
+				this.outputCount = var1.readUnsignedShort(); // L: 48
+				this.keys = new int[this.outputCount]; // L: 49
+				this.strVals = new String[this.outputCount]; // L: 50
 
-				for (var3 = 0; var3 < this.outputCount; ++var3) { // L: 55
-					this.keys[var3] = var1.readInt(); // L: 56
-					this.strVals[var3] = var1.readStringCp1252NullTerminated(); // L: 57
+				for (var3 = 0; var3 < this.outputCount; ++var3) { // L: 51
+					this.keys[var3] = var1.readInt(); // L: 52
+					this.strVals[var3] = var1.readStringCp1252NullTerminated(); // L: 53
 				}
-			} else if (var2 == 6) { // L: 60
-				this.outputCount = var1.readUnsignedShort(); // L: 61
-				this.keys = new int[this.outputCount]; // L: 62
-				this.intVals = new int[this.outputCount]; // L: 63
+			} else if (var2 == 6) { // L: 56
+				this.outputCount = var1.readUnsignedShort(); // L: 57
+				this.keys = new int[this.outputCount]; // L: 58
+				this.intVals = new int[this.outputCount]; // L: 59
 
-				for (var3 = 0; var3 < this.outputCount; ++var3) { // L: 64
-					this.keys[var3] = var1.readInt(); // L: 65
-					this.intVals[var3] = var1.readInt(); // L: 66
+				for (var3 = 0; var3 < this.outputCount; ++var3) { // L: 60
+					this.keys[var3] = var1.readInt(); // L: 61
+					this.intVals[var3] = var1.readInt(); // L: 62
 				}
 			}
 		}
 
-	} // L: 70
+	} // L: 66
 
-	@ObfuscatedName("j")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "75421574"
+		garbageValue = "2014550387"
 	)
 	@Export("size")
 	public int size() {
-		return this.outputCount; // L: 73
+		return this.outputCount; // L: 69
 	}
 
-	@ObfuscatedName("c")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Lju;Lqv;I)Ljt;",
-		garbageValue = "870680813"
+		descriptor = "(B)V",
+		garbageValue = "-78"
 	)
-	@Export("getPacketBufferNode")
-	public static PacketBufferNode getPacketBufferNode(ClientPacket var0, IsaacCipher var1) {
-		PacketBufferNode var2;
-		if (PacketBufferNode.PacketBufferNode_packetBufferNodeCount == 0) { // L: 24
-			var2 = new PacketBufferNode(); // L: 25
-		} else {
-			var2 = PacketBufferNode.PacketBufferNode_packetBufferNodes[--PacketBufferNode.PacketBufferNode_packetBufferNodeCount]; // L: 28
-		}
+	public static void method3678() {
+		class188.FloorUnderlayDefinition_cached.clear(); // L: 14
+	} // L: 15
 
-		var2.clientPacket = var0; // L: 31
-		var2.clientPacketLength = var0.length; // L: 32
-		if (var2.clientPacketLength == -1) {
-			var2.packetBuffer = new PacketBuffer(260); // L: 33
-		} else if (var2.clientPacketLength == -2) { // L: 34
-			var2.packetBuffer = new PacketBuffer(10000);
-		} else if (var2.clientPacketLength <= 18) { // L: 35
-			var2.packetBuffer = new PacketBuffer(20);
-		} else if (var2.clientPacketLength <= 98) { // L: 36
-			var2.packetBuffer = new PacketBuffer(100);
-		} else {
-			var2.packetBuffer = new PacketBuffer(260); // L: 37
-		}
-
-		var2.packetBuffer.setIsaacCipher(var1); // L: 38
-		var2.packetBuffer.writeByteIsaac(var2.clientPacket.id); // L: 39
-		var2.index = 0; // L: 40
-		return var2; // L: 41
+	@ObfuscatedName("ba")
+	@ObfuscatedSignature(
+		descriptor = "(ILnx;IIIII[FI)Lnx;",
+		garbageValue = "1937006233"
+	)
+	static Widget method3679(int var0, Widget var1, int var2, int var3, int var4, int var5, int var6, float[] var7) {
+		Widget var8 = new Widget(); // L: 792
+		var8.type = var0; // L: 793
+		var8.parentId = var1.id; // L: 794
+		var8.childIndex = var2; // L: 795
+		var8.isIf3 = true; // L: 796
+		var8.xAlignment = var3; // L: 797
+		var8.yAlignment = var4; // L: 798
+		var8.widthAlignment = var5; // L: 799
+		var8.heightAlignment = var6; // L: 800
+		var8.rawX = (int)((float)var1.width * var7[0]); // L: 801
+		var8.rawY = (int)(var7[1] * (float)var1.height); // L: 802
+		var8.rawWidth = (int)(var7[2] * (float)var1.width); // L: 803
+		var8.rawHeight = (int)((float)var1.height * var7[3]); // L: 804
+		return var8; // L: 805
 	}
 
-	@ObfuscatedName("v")
+	@ObfuscatedName("bz")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lgs;",
-		garbageValue = "-21"
+		descriptor = "(I)I",
+		garbageValue = "1971455703"
 	)
-	@Export("ItemComposition_get")
-	public static ItemComposition ItemComposition_get(int var0) {
-		ItemComposition var1 = (ItemComposition)ItemComposition.ItemComposition_cached.get((long)var0); // L: 92
-		if (var1 != null) { // L: 93
-			return var1;
-		} else {
-			byte[] var2 = UserComparator4.ItemComposition_archive.takeFile(10, var0); // L: 94
-			var1 = new ItemComposition(); // L: 95
-			var1.id = var0; // L: 96
-			if (var2 != null) { // L: 97
-				var1.decode(new Buffer(var2));
-			}
+	@Export("getGcDuration")
+	protected static int getGcDuration() {
+		int var0 = 0; // L: 628
+		if (class541.garbageCollector == null || !class541.garbageCollector.isValid()) { // L: 629
+			try {
+				Iterator var1 = ManagementFactory.getGarbageCollectorMXBeans().iterator(); // L: 631
 
-			var1.post(); // L: 98
-			if (var1.noteTemplate != -1) { // L: 99
-				var1.genCert(ItemComposition_get(var1.noteTemplate), ItemComposition_get(var1.note));
-			}
-
-			if (var1.notedId != -1) { // L: 100
-				var1.genBought(ItemComposition_get(var1.notedId), ItemComposition_get(var1.unnotedId));
-			}
-
-			if (var1.placeholderTemplate != -1) { // L: 101
-				var1.genPlaceholder(ItemComposition_get(var1.placeholderTemplate), ItemComposition_get(var1.placeholder));
-			}
-
-			if (!DevicePcmPlayerProvider.ItemComposition_inMembersWorld && var1.isMembersOnly) { // L: 102
-				var1.name = "Members object"; // L: 103
-				var1.isTradable = false; // L: 104
-
-				int var3;
-				for (var3 = 0; var3 < var1.groundActions.length; ++var3) { // L: 105
-					var1.groundActions[var3] = null; // L: 106
-				}
-
-				for (var3 = 0; var3 < var1.inventoryActions.length; ++var3) { // L: 108
-					if (var3 != 4) { // L: 109
-						var1.inventoryActions[var3] = null; // L: 110
+				while (var1.hasNext()) {
+					GarbageCollectorMXBean var2 = (GarbageCollectorMXBean)var1.next(); // L: 632
+					if (var2.isValid()) { // L: 634
+						class541.garbageCollector = var2; // L: 635
+						GameEngine.garbageCollectorLastCheckTimeMs = -1L; // L: 636
+						GameEngine.garbageCollectorLastCollectionTime = -1L; // L: 637
 					}
 				}
-
-				var1.shiftClickIndex = -2; // L: 113
-				var1.team = 0; // L: 114
-				if (var1.params != null) { // L: 115
-					boolean var6 = false; // L: 116
-
-					for (Node var4 = var1.params.first(); var4 != null; var4 = var1.params.next()) { // L: 117
-						ParamComposition var5 = class174.getParamDefinition((int)var4.key); // L: 118
-						if (var5.autoDisable) { // L: 119
-							var4.remove();
-						} else {
-							var6 = true; // L: 120
-						}
-					}
-
-					if (!var6) {
-						var1.params = null; // L: 122
-					}
-				}
+			} catch (Throwable var11) { // L: 642
 			}
-
-			ItemComposition.ItemComposition_cached.put(var1, (long)var0); // L: 125
-			return var1; // L: 126
 		}
+
+		if (class541.garbageCollector != null) { // L: 644
+			long var9 = WorldMapData_1.method4861(); // L: 645
+			long var3 = class541.garbageCollector.getCollectionTime(); // L: 646
+			if (GameEngine.garbageCollectorLastCollectionTime != -1L) { // L: 647
+				long var5 = var3 - GameEngine.garbageCollectorLastCollectionTime; // L: 648
+				long var7 = var9 - GameEngine.garbageCollectorLastCheckTimeMs; // L: 649
+				if (0L != var7) { // L: 650
+					var0 = (int)(var5 * 100L / var7);
+				}
+			}
+
+			GameEngine.garbageCollectorLastCollectionTime = var3; // L: 652
+			GameEngine.garbageCollectorLastCheckTimeMs = var9; // L: 653
+		}
+
+		return var0; // L: 655
 	}
 }
