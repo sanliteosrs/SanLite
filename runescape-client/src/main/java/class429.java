@@ -1,32 +1,54 @@
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pz")
-final class class429 implements class428 {
-	@ObfuscatedName("c")
+@ObfuscatedName("qc")
+public class class429 implements Iterator {
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;Lqt;B)V",
-		garbageValue = "-51"
+		descriptor = "Lqq;"
 	)
-	public void vmethod7583(Object var1, Buffer var2) {
-		this.method7543((Integer)var1, var2); // L: 21
-	} // L: 22
+	class430 field4732;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = 317340959
+	)
+	int field4733;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = 1536068071
+	)
+	int field4734;
 
-	@ObfuscatedName("v")
 	@ObfuscatedSignature(
-		descriptor = "(Lqt;I)Ljava/lang/Object;",
-		garbageValue = "-261873850"
+		descriptor = "(Lqq;)V"
 	)
-	public Object vmethod7580(Buffer var1) {
-		return var1.readInt(); // L: 17
+	class429(class430 var1) {
+		this.field4733 = 0; // L: 177
+		this.field4734 = this.field4732.field4739; // L: 178
+		this.field4732 = var1; // L: 181
+	} // L: 182
+
+	public void remove() {
+		throw new UnsupportedOperationException(); // L: 203
 	}
 
-	@ObfuscatedName("w")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Integer;Lqt;I)V",
-		garbageValue = "-97266206"
-	)
-	void method7543(Integer var1, Buffer var2) {
-		var2.writeInt(var1); // L: 12
-	} // L: 13
+	public Object next() {
+		if (this.field4732.field4739 != this.field4734) { // L: 192
+			throw new ConcurrentModificationException();
+		} else if (this.field4733 < this.field4732.field4737) { // L: 193
+			Object var1 = this.field4732.field4735[this.field4733].field4730; // L: 194
+			++this.field4733; // L: 195
+			return var1; // L: 196
+		} else {
+			throw new NoSuchElementException(); // L: 198
+		}
+	}
+
+	public boolean hasNext() {
+		return this.field4733 < this.field4732.field4737; // L: 186
+	}
 }
